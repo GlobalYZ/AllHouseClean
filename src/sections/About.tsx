@@ -5,8 +5,9 @@ import JavascriptIcon from "@/assets/icons/square-js.svg";
 import HtmlIcon from "@/assets/icons/html5.svg";
 import CssIcon from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
-import { TechIcon } from "@/components/TechIcon";
+import { TechIcon } from "@/components/About/TechIcon";
 
+import { LinkIcon } from "@/components/About/LinkIcon";
 import LinkedinIcon from "@/assets/icons/link-linkedin.svg";
 import GithubIcon from "@/assets/icons/link-github.svg";
 import DribbleIcon from "@/assets/icons/link-dribble.svg";
@@ -34,6 +35,14 @@ const linkItems = [
   {
     title: "LinkedIn",
     iconType: LinkedinIcon,
+  },
+  {
+    title: "Github",
+    iconType: GithubIcon,
+  },
+  {
+    title: "Dribble",
+    iconType: DribbleIcon,
   },
 ];
 
@@ -91,6 +100,15 @@ export const AboutSection = () => {
             <p className="text-sm text-white/60">
               A web & mobile developer, located in Canada, AB.
             </p>
+            <div className="flex justify-center gap-6">
+              {linkItems.map((item) => (
+                <LinkIcon
+                  key={item.title}
+                  component={item.iconType}
+                  title={item.title}
+                />
+              ))}
+            </div>
           </Card>
           <Card>
             <div>
