@@ -1,0 +1,114 @@
+{
+    "sourceFile": "src/components/ProjectCard.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 24,
+            "patches": [
+                {
+                    "date": 1738391248392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738391347031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import Image from \"next/image\";\n+import Image, { StaticImageData } from \"next/image\";\n import CheckCircleIcon from \"@/assets/icons/check-circle.svg\";\n import ArrowUpRightIcon from \"@/assets/icons/arrow-up-right.svg\";\n import grainImage from \"@/assets/images/grain.jpg\";\n \n@@ -8,9 +8,9 @@\n   year: string;\n   title: string;\n   results: { title: string }[];\n   link: string;\n-  image: string;\n+  image: StaticImageData;\n }\n \n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n"
+                },
+                {
+                    "date": 1738391407568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -61,5 +61,5 @@\n         </div>\n       </div>\n     </div>\n   );\n-}; \n\\ No newline at end of file\n+};\n"
+                },
+                {
+                    "date": 1738391488228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n     <div\n       className=\"bg-gray-800 overflow-hidden rounded-3xl relative z-0 \n-      border-2 border-white/20 pt-8 md:pt-12 px-8 md:px-10\"\n+      border-2 border-white/20 pt-8 md:pt-12 px-8 md:px-10 lg:pt-16\"\n     >\n       <div\n         className=\"absolute inset-0 -z-10 opacity-5\"\n         style={{\n"
+                },
+                {
+                    "date": 1738391525979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n     <div\n       className=\"bg-gray-800 overflow-hidden rounded-3xl relative z-0 \n-      border-2 border-white/20 pt-8 md:pt-12 px-8 md:px-10 lg:pt-16\"\n+      border-2 border-white/20 pt-8 md:pt-12 px-8 md:px-10 lg:pt-16 lg:px-20\"\n     >\n       <div\n         className=\"absolute inset-0 -z-10 opacity-5\"\n         style={{\n"
+                },
+                {
+                    "date": 1738391563025,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           backgroundImage: `url(${grainImage.src})`,\n         }}\n       ></div>\n       <div className=\"lg:grid grid-cols-2\">\n-        <div>\n+        <div className=\"lg:order-2\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n             <br />\n             <span>{project.year}</span>\n"
+                },
+                {
+                    "date": 1738391686122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n           backgroundImage: `url(${grainImage.src})`,\n         }}\n       ></div>\n       <div className=\"lg:grid grid-cols-2\">\n-        <div className=\"lg:order-2\">\n+        <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n             <br />\n             <span>{project.year}</span>\n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:max-w-none lg:h-full lg:w-auto lg:max-w-none\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738391701874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute lg:max-w-none lg:h-full lg:w-auto lg:max-w-none\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738391754771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         style={{\n           backgroundImage: `url(${grainImage.src})`,\n         }}\n       ></div>\n-      <div className=\"lg:grid grid-cols-2\">\n+      <div className=\"lg:grid grid-cols-2 gap-4\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n             <br />\n"
+                },
+                {
+                    "date": 1738391788241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         style={{\n           backgroundImage: `url(${grainImage.src})`,\n         }}\n       ></div>\n-      <div className=\"lg:grid grid-cols-2 gap-4\">\n+      <div className=\"lg:grid grid-cols-2 gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n             <br />\n"
+                },
+                {
+                    "date": 1738391848767,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:w-full lg:w-auto lg:max-w-none\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738391861690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute lg:w-full lg:w-auto lg:max-w-none\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:w-full lg:h-auto lg:max-w-none\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738391945477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute lg:w-full lg:h-auto lg:max-w-none\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:w-full lg:h-auto\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738391963289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute lg:w-full lg:h-auto\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute right-0 lg:w-full lg:h-auto\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738391982938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div>\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute right-0 lg:w-full lg:h-auto\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738392028138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         style={{\n           backgroundImage: `url(${grainImage.src})`,\n         }}\n       ></div>\n-      <div className=\"lg:grid grid-cols-2 gap-12\">\n+      <div className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n             <br />\n"
+                },
+                {
+                    "date": 1738392219722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n             <span>Explore More</span>\n             <ArrowUpRightIcon className=\"size-4\" />\n           </a>\n         </div>\n-        <div>\n+        <div className=\"relative\">\n           <Image\n             src={project.image}\n             alt={project.title}\n             className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto\"\n"
+                },
+                {
+                    "date": 1738392257544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         <div className=\"relative\">\n           <Image\n             src={project.image}\n             alt={project.title}\n-            className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto\"\n+            className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none\"\n           />\n         </div>\n       </div>\n     </div>\n"
+                },
+                {
+                    "date": 1738398753501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import Image, { StaticImageData } from \"next/image\";\n import CheckCircleIcon from \"@/assets/icons/check-circle.svg\";\n import ArrowUpRightIcon from \"@/assets/icons/arrow-up-right.svg\";\n-import grainImage from \"@/assets/images/grain.jpg\";\n+import { Card } from \"@/components/Card\";\n \n interface Project {\n   company: string;\n   year: string;\n"
+                },
+                {
+                    "date": 1738398817734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,18 +13,9 @@\n }\n \n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n-    <div\n-      className=\"bg-gray-800 overflow-hidden rounded-3xl relative z-0 \n-      border-2 border-white/20 pt-8 md:pt-12 px-8 md:px-10 lg:pt-16 lg:px-20\"\n-    >\n-      <div\n-        className=\"absolute inset-0 -z-10 opacity-5\"\n-        style={{\n-          backgroundImage: `url(${grainImage.src})`,\n-        }}\n-      ></div>\n+    <Card key={project.title}>\n       <div className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n@@ -58,8 +49,8 @@\n             alt={project.title}\n             className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none\"\n           />\n         </div>\n-      </div>\n-    </div>\n+    </Card>\n   );\n+  );\n };\n"
+                },
+                {
+                    "date": 1738398832039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,8 @@\n             alt={project.title}\n             className=\"-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none\"\n           />\n         </div>\n+      </div>\n     </Card>\n   );\n-  );\n };\n"
+                },
+                {
+                    "date": 1738398858267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n }\n \n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n-    <Card key={project.title}>\n+    <Card key={project.title} className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n       <div className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n"
+                },
+                {
+                    "date": 1738398870183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n }\n \n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n-    <Card key={project.title} className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n+    <Card key={project.title} className=\"p-8 lg:grid lg:grid-cols-2 lg:gap-12\">\n       <div className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n"
+                },
+                {
+                    "date": 1738398907490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n }\n \n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n-    <Card key={project.title} className=\"p-8 lg:grid lg:grid-cols-2 lg:gap-12\">\n+    <Card key={project.title} className=\"p-8\">\n       <div className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n"
+                },
+                {
+                    "date": 1738398979724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n }\n \n export const ProjectCard = ({ project }: { project: Project }) => {\n   return (\n-    <Card key={project.title} className=\"p-8\">\n+    <Card key={project.title} className=\"pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20\">\n       <div className=\"lg:grid lg:grid-cols-2 lg:gap-12\">\n         <div className=\"lg:pb-16\">\n           <div className=\"gradient-text font-bold gap-2 text-sm\">\n             <span>{project.company}</span>\n"
+                }
+            ],
+            "date": 1738391248392,
+            "name": "Commit-0",
+            "content": "import Image from \"next/image\";\nimport CheckCircleIcon from \"@/assets/icons/check-circle.svg\";\nimport ArrowUpRightIcon from \"@/assets/icons/arrow-up-right.svg\";\nimport grainImage from \"@/assets/images/grain.jpg\";\n\ninterface Project {\n  company: string;\n  year: string;\n  title: string;\n  results: { title: string }[];\n  link: string;\n  image: string;\n}\n\nexport const ProjectCard = ({ project }: { project: Project }) => {\n  return (\n    <div\n      className=\"bg-gray-800 overflow-hidden rounded-3xl relative z-0 \n      border-2 border-white/20 pt-8 md:pt-12 px-8 md:px-10\"\n    >\n      <div\n        className=\"absolute inset-0 -z-10 opacity-5\"\n        style={{\n          backgroundImage: `url(${grainImage.src})`,\n        }}\n      ></div>\n      <div className=\"lg:grid grid-cols-2\">\n        <div>\n          <div className=\"gradient-text font-bold gap-2 text-sm\">\n            <span>{project.company}</span>\n            <br />\n            <span>{project.year}</span>\n          </div>\n\n          <h3 className=\"text-2xl font-serif mt-2 md:mt-5 md:text-4xl\">\n            {project.title}\n          </h3>\n          <hr className=\"border-t-2 border-white/5 mt-4 md:mt-5\" />\n          <ul className=\"flex flex-col gap-4 mt-4 md:mt-5\">\n            {project.results.map((result) => (\n              <li\n                key={result.title}\n                className=\"flex items-center gap-2 text-sm md:text-base text-white/50\"\n              >\n                <CheckCircleIcon className=\"size-5 md:size-6\" />\n                <span>{result.title}</span>\n              </li>\n            ))}\n          </ul>\n          <a href={project.link} className=\"btn my-8\">\n            <span>Explore More</span>\n            <ArrowUpRightIcon className=\"size-4\" />\n          </a>\n        </div>\n        <div>\n          <Image\n            src={project.image}\n            alt={project.title}\n            className=\"-mb-4 md:-mb-0\"\n          />\n        </div>\n      </div>\n    </div>\n  );\n}; "
+        }
+    ]
+}

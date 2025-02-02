@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .nav-item {
+    @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300;
+  }
+
+  .hero-ring {
+    @apply inset-0 -z-10 border-2 rounded-full border-emerald-300/5  shadow-[0_0_80px_inset] shadow-emerald-300/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  .btn {
+    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-white text-gray-950 md:w-auto px-6;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-emerald-300 to-sky-400;
+  }
+
+  .gradient-text {
+    @apply inline-flex uppercase font-semibold tracking-widest gradient-bg text-transparent bg-clip-text text-center;
+  }
+
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+@layer utilities {
+  .container {
+    @apply lg:max-w-5xl;
+  }
+}

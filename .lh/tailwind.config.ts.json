@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tailwind.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1738307693492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738385357058,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     },\n     container: {\n       center: true,\n       padding: {\n-        DEFAULT: \"0\",\n+        DEFAULT: \"0.5rem\",\n         md: \"2rem\",\n       },\n     },\n     extend: {\n"
+                },
+                {
+                    "date": 1738402105979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     },\n     container: {\n       center: true,\n       padding: {\n-        DEFAULT: \"0.5rem\",\n+        DEFAULT: \"1rem\",\n         md: \"2rem\",\n       },\n     },\n     extend: {\n"
+                }
+            ],
+            "date": 1738307693492,
+            "name": "Commit-0",
+            "content": "import type { Config } from \"tailwindcss\";\n\nconst config: Config = {\n  content: [\n    \"./src/pages/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/sections/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/components/**/*.{js,ts,jsx,tsx,mdx}\",\n    \"./src/app/**/*.{js,ts,jsx,tsx,mdx}\",\n  ],\n  theme: {\n    screens: {\n      sm: \"375px\",\n      md: \"768px\",\n      lg: \"1200px\",\n    },\n    container: {\n      center: true,\n      padding: {\n        DEFAULT: \"0\",\n        md: \"2rem\",\n      },\n    },\n    extend: {\n      fontFamily: {\n        sans: \"var(--font-sans)\",\n        serif: \"var(--font-serif)\",\n      },\n    },\n  },\n  plugins: [],\n};\nexport default config;\n"
+        }
+    ]
+}

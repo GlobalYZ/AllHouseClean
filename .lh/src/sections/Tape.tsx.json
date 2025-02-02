@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/sections/Tape.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1738392438263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738392523337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,13 @@\n-const words = [];\n+const words = [\n+  \"Performant\",\n+  \"Accessibile\",\n+  \"Interactive\",\n+  \"Scalable\",\n+  \"User Friendly\",\n+  \"Maintainable\",\n+  \"SEO Optimized\"\n+];\n \n export const TapeSection = () => {\n   return <div></div>;\n };\n"
+                },
+                {
+                    "date": 1738392570440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,17 @@\n   \"Scalable\",\n   \"User Friendly\",\n   \"Maintainable\",\n   \"SEO Optimized\",\n+  \"Reliable\"\n ];\n \n export const TapeSection = () => {\n-  return <div></div>;\n+  return <div>\n+      {words.map((word) => (\n+        <div key={word} className=\"flex items-center justify-center\">\n+          <span>{word}</span>\n+        </div>\n+      ))}\n+    </div>\n+  );\n };\n"
+                }
+            ],
+            "date": 1738392438263,
+            "name": "Commit-0",
+            "content": "const words = [\n  \n]\n\nexport const TapeSection = () => {\n  return <div>\n\n  </div>;\n};\n"
+        }
+    ]
+}

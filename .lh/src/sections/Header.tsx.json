@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/sections/Header.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1738303262357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1738307160894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   const { t } = useLanguage();\n \n   return (\n     <div className=\"flex justify-center items-center relative top-3\">\n-      <nav className=\"flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n+      <nav className=\"flex md:gap-1 p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n         <a href=\"#\" className=\"nav-item\">\n           {t(\"home\")}\n         </a>\n         <a href=\"#\" className=\"nav-item\">\n"
+                },
+                {
+                    "date": 1738307345167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   const { t } = useLanguage();\n \n   return (\n     <div className=\"flex justify-center items-center relative top-3\">\n-      <nav className=\"flex md:gap-1 p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n+      <nav className=\"flex md:gap-1 md:p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n         <a href=\"#\" className=\"nav-item\">\n           {t(\"home\")}\n         </a>\n         <a href=\"#\" className=\"nav-item\">\n"
+                },
+                {
+                    "date": 1738307371551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const Header = () => {\n   const { t } = useLanguage();\n \n   return (\n-    <div className=\"flex justify-center items-center relative top-3\">\n+    <div className=\"flex justify-center items-center relative top-6\">\n       <nav className=\"flex md:gap-1 md:p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n         <a href=\"#\" className=\"nav-item\">\n           {t(\"home\")}\n         </a>\n"
+                },
+                {
+                    "date": 1738307463693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const Header = () => {\n   const { t } = useLanguage();\n \n   return (\n-    <div className=\"flex justify-center items-center relative top-6\">\n+    <div className=\"flex justify-center items-center relative z-10 top-6\">\n       <nav className=\"flex md:gap-1 md:p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n         <a href=\"#\" className=\"nav-item\">\n           {t(\"home\")}\n         </a>\n"
+                },
+                {
+                    "date": 1738311438259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const Header = () => {\n   const { t } = useLanguage();\n \n   return (\n-    <div className=\"flex justify-center items-center relative z-10 top-6\">\n+    <div className=\"flex justify-center items-center fixed z-10 top-6\">\n       <nav className=\"flex md:gap-1 md:p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n         <a href=\"#\" className=\"nav-item\">\n           {t(\"home\")}\n         </a>\n"
+                },
+                {
+                    "date": 1738311460172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n export const Header = () => {\n   const { t } = useLanguage();\n \n   return (\n-    <div className=\"flex justify-center items-center fixed z-10 top-6\">\n+    <div className=\"flex justify-center items-center fixed z-10 top-6 left-1/2 -translate-x-1/2\">\n       <nav className=\"flex md:gap-1 md:p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n         <a href=\"#\" className=\"nav-item\">\n           {t(\"home\")}\n         </a>\n"
+                }
+            ],
+            "date": 1738303262357,
+            "name": "Commit-0",
+            "content": "\"use client\";\n\nimport { useLanguage } from \"@/contexts/LanguageContext\";\nimport { LanguageSwitch } from \"@/components/LanguageSwitch\";\n\nexport const Header = () => {\n  const { t } = useLanguage();\n\n  return (\n    <div className=\"flex justify-center items-center relative top-3\">\n      <nav className=\"flex gap-1 p-0.5 border border-white/15 rounded-full bg-white/5 backdrop-blur\">\n        <a href=\"#\" className=\"nav-item\">\n          {t(\"home\")}\n        </a>\n        <a href=\"#\" className=\"nav-item\">\n          {t(\"projects\")}\n        </a>\n        <a href=\"#\" className=\"nav-item\">\n          {t(\"about\")}\n        </a>\n        <a href=\"#\" className=\"nav-item\">\n          {t(\"contact\")}\n        </a>\n        <LanguageSwitch />\n      </nav>\n    </div>\n  );\n};\n"
+        }
+    ]
+}
