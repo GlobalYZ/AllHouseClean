@@ -49,13 +49,7 @@ export const TestimonialsSection = () => {
         eyebrow="Happy Clients"
         description="Don't just take my words for it, See what clients say"
       />
-      <div
-        className="mt-16 lg:mt-24 flex overflow-x-clip"
-        style={{
-          maskImage:
-            "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0))",
-        }}
-      >
+      <div className="mt-16 lg:mt-24 flex overflow-x-clip mask-layer">
         <div className="flex gap-8 flex-none">
           {testimonials.map((testimonial) => (
             <Card

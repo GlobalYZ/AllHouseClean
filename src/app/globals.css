@@ -34,4 +34,8 @@ html, body {
   .container {
     @apply lg:max-w-5xl;
   }
+
+  .mask-layer {
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0));
+  }
 }
