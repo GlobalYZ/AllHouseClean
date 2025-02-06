@@ -6,7 +6,7 @@ import memojiAvatar5 from "@/assets/images/memoji-avatar-5.png";
 import Image from "next/image";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
-
+import { MoveLeftItems } from "@/components/MoveLeftItems";
 const testimonials = [
   {
     name: "Alex Turner",
@@ -48,12 +48,12 @@ export const TestimonialsSection = () => {
         eyebrow="Happy Clients"
         description="Don't just take my words for it, See what clients say"
       />
-      <div className="mt-16 lg:mt-24 flex overflow-x-clip mask-layer">
-        <div className="flex gap-8 flex-none">
+      <div className="mt-12 lg:mt-20 flex overflow-x-clip mask-layer py-4">
+        <MoveLeftItems className="flex gap-8 flex-none [animation-duration:90s] hover:[animation-play-state:paused]">
           {testimonials.map((testimonial) => (
             <Card
               key={testimonial.name}
-              className="p-6 max-w-xs md:p-8 md:max-w-md"
+              className="p-6 max-w-xs md:p-8 md:max-w-md hover:scale-105 transition-all duration-300"
             >
               <div className="flex gap-4 items-center">
                 <Image
@@ -73,7 +73,7 @@ export const TestimonialsSection = () => {
               </p>
             </Card>
           ))}
-        </div>
+        </MoveLeftItems>
       </div>
     </section>
   );
