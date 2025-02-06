@@ -1,5 +1,5 @@
 import StarIcon from "@/assets/icons/star.svg";
-import { MoveLeftItems } from "@/components/MoveLeftItems";
+import { MoveItems } from "@/components/MoveItems";
 
 const words = [
   "Performant",
@@ -17,7 +17,7 @@ export const TapeSection = () => {
     <section className="py-32 lg:py-48 md:py-40 overflow-x-clip">
       <div className="gradient-bg -rotate-6 -mx-1">
         <div className="mask-layer-tape">
-          <MoveLeftItems className="flex h-10 items-center gap-4">
+          <MoveItems className="flex h-10 items-center gap-4">
             {words.map((word) => (
               <div key={word} className="inline-flex items-center gap-4">
                 <span className="text-gray-900 uppercase font-extrabold text-sm text-nowrap">
@@ -26,7 +26,7 @@ export const TapeSection = () => {
                 <StarIcon className="size-6 text-gray-900 -rotate-12" />
               </div>
             ))}
-          </MoveLeftItems>
+          </MoveItems>
         </div>
       </div>
     </section>

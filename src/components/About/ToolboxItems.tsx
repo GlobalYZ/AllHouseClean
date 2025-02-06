@@ -1,9 +1,12 @@
 import { TechIcon } from "@/components/About/TechIcon";
 import { twMerge } from "tailwind-merge";
+import { MoveItems } from "@/components/MoveItems";
+
 export const ToolboxItems = ({
   toolboxItems,
   className,
   itemsWrapperClassName,
+  direction = "left",
 }: {
   toolboxItems: {
     title: string;
@@ -11,14 +14,16 @@ export const ToolboxItems = ({
   }[];
   className?: string;
   itemsWrapperClassName?: string;
+  direction?: "left" | "right";
 }) => {
   return (
     <div className={twMerge("flex mask-layer", className)}>
-      <div
+      <MoveItems
         className={twMerge(
-          "flex flex-none py-0.5 gap-6 pr-6",
+          "flex flex-none py-0.5 gap-6 pr-6 [animation-duration:20s] hover:[animation-play-state:paused]",
           itemsWrapperClassName
         )}
+        direction={direction}
       >
         {toolboxItems.map((item) => (
           <div
@@ -29,7 +34,7 @@ export const ToolboxItems = ({
             <span className="font-semibold">{item.title}</span>
           </div>
         ))}
-      </div>
+      </MoveItems>
     </div>
   );
 };

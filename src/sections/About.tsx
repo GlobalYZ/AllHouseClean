@@ -1,3 +1,5 @@
+"use client";
+
 import { SectionHeader } from "@/components/SectionHeader";
 import { CardHeader } from "@/components/About/CardHeader";
 import { Card } from "@/components/Card";
@@ -13,6 +15,8 @@ import LinkedinIcon from "@/assets/icons/link-linkedin.svg";
 import GithubIcon from "@/assets/icons/link-github.svg";
 import DribbleIcon from "@/assets/icons/link-dribble.svg";
 import { Map } from "@/components/About/Map";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const toolboxItems = [
   {
@@ -95,6 +99,7 @@ const functionalSkills = [
 
 export const AboutSection = () => {
   const cardClasses = "h-[320px] p-6 relative flex flex-col gap-4";
+  const constraintRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <section className="container py-32">
@@ -130,6 +135,7 @@ export const AboutSection = () => {
                 <ToolboxItems toolboxItems={toolboxItems} className="mt-6" />
                 <ToolboxItems
                   toolboxItems={toolboxItems}
+                  direction="right"
                   itemsWrapperClassName="-translate-x-1/2"
                 />
               </div>
@@ -147,21 +153,23 @@ export const AboutSection = () => {
                 description="Explore my core skills"
                 className="px-6 pt-6"
               />
-              <div className="flex-1 h-[220px] relative">
+              <div className="flex-1 h-[220px] relative" ref={constraintRef}>
                 {functionalSkills.map((item) => (
-                  <div
+                  <motion.div
                     key={item.title}
                     className="inline-flex items-center gap-2 gradient-bg rounded-full px-3 py-1 absolute"
                     style={{
                       left: item.left,
                       top: item.top,
                     }}
+                    drag
+                    dragConstraints={constraintRef}
                   >
                     <span className="text-sm font-medium text-gray-950">
                       {item.title}
                     </span>
                     <span>{item.emoji}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </Card>
