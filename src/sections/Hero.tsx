@@ -8,6 +8,7 @@ import StarIcon from "@/assets/icons/star.svg";
 import SparklesIcon from "@/assets/icons/sparkle.svg";
 import { HeroOrbit } from "@/components/heroOrbit";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState, useEffect } from "react";
 
 const starRings = (
   <div
@@ -88,8 +89,20 @@ const starRings = (
   </div>
 );
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  onLoadComplete?: () => void;
+}
+
+export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
   const { t } = useLanguage();
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    if (imageLoaded && onLoadComplete) {
+      onLoadComplete();
+    }
+  }, [imageLoaded, onLoadComplete]);
+
   const handleExploreWork = () => {
     const top = document.getElementsByTagName("section")[1].offsetTop - 100;
     console.log("explore work");
@@ -103,7 +116,12 @@ export const HeroSection = () => {
     <div className="h-screen py-32 md:py-48 lg:py-60 relative z-0 overflow-x-hidden">
       {starRings}
       <section className="container flex flex-col items-center justify-center h-full">
-        <Image className="size-[100px]" src={memojiImage} alt="Coding Memoji" />
+        <Image
+          className="size-[100px]"
+          src={memojiImage}
+          alt="Coding Memoji"
+          onLoadingComplete={() => setImageLoaded(true)}
+        />
         <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
           <div className="size-2.5 bg-green-500 rounded-full relative">
             <div className="absolute top-0 left-0 w-full h-full bg-green-500 rounded-full animate-ping-large">
