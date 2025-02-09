@@ -1,3 +1,5 @@
+"use client";
+
 import memojiAvatar1 from "@/assets/images/memoji-avatar-1.png";
 import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
 import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
@@ -7,46 +9,32 @@ import Image from "next/image";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import { MoveItems } from "@/components/MoveItems";
-const testimonials = [
-  {
-    name: "Alex Turner",
-    position: "Marketing Manager @ TechStartups",
-    text: "Alex was instrumental in transforming our website into a powerful marketing tool. His attention to detail and ability to understand our brand is exceptional. We're thrilled with the results!",
-    avatar: memojiAvatar1,
-  },
-  {
-    name: "Olivia Green",
-    position: "Head of Design @ GreenLeaf",
-    text: "Working with Alex was a pleasure. His expertise in frontend development brought our designs to life in a way we never imagined. The website has exceeded our expectations.",
-    avatar: memojiAvatar2,
-  },
-  {
-    name: "Daniel White",
-    position: "CEO @ InnovateCo",
-    text: "Alex's ability to create seamless user experiences is unmatched. Our website has seen a significant increase in conversions since launching the new design. We couldn't be happier.",
-    avatar: memojiAvatar3,
-  },
-  {
-    name: "Emily Carter",
-    position: "Product Manager @ GlobalTech",
-    text: "Alex is a true frontend wizard. He took our complex product and transformed it into an intuitive and engaging user interface. We're already seeing positive feedback from our customers.",
-    avatar: memojiAvatar4,
-  },
-  {
-    name: "Michael Brown",
-    position: "Director of IT @ MegaCorp",
-    text: "Alex's work on our website has been nothing short of exceptional. He's a talented developer who is also a great communicator. We highly recommend him.",
-    avatar: memojiAvatar5,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const TestimonialsSection = () => {
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      name: t("testimonial.clientOne.name"),
+      position: t("testimonial.clientOne.position"),
+      text: t("testimonial.clientOne.text"),
+      avatar: memojiAvatar1,
+    },
+    {
+      name: t("testimonial.clientTwo.name"),
+      position: t("testimonial.clientTwo.position"),
+      text: t("testimonial.clientTwo.text"),
+      avatar: memojiAvatar3,
+    },
+  ];
+
   return (
     <section className="container">
       <SectionHeader
-        title="What Clients Say about me"
-        eyebrow="Happy Clients"
-        description="Don't just take my words for it, See what clients say"
+        title={t("testimonial.title")}
+        eyebrow={t("testimonial.top")}
+        description={t("testimonial.description")}
       />
       <div className="mt-12 lg:mt-20 flex overflow-x-clip mask-layer py-4">
         <MoveItems className="flex gap-8 flex-none [animation-duration:90s] hover:[animation-play-state:paused]">
@@ -68,7 +56,7 @@ export const TestimonialsSection = () => {
                   </p>
                 </div>
               </div>
-              <p className="mt-4 md:mt-6 md:text-base" text-sm>
+              <p className="mt-4 md:mt-6 md:text-base text-sm">
                 {testimonial.text}
               </p>
             </Card>

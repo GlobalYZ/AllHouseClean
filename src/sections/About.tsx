@@ -17,6 +17,7 @@ import DribbleIcon from "@/assets/icons/link-dribble.svg";
 import { Map } from "@/components/About/Map";
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const toolboxItems = [
   {
@@ -52,70 +53,72 @@ const linkItems = [
   },
 ];
 
-const functionalSkills = [
-  {
-    title: "Web Development",
-    emoji: "🌐",
-    left: "10%",
-    top: "10%",
-  },
-  {
-    title: "Mobile Development",
-    emoji: "📱",
-    left: "5%",
-    top: "50%",
-  },
-  {
-    title: "REST APIs",
-    emoji: "🔄",
-    left: "35%",
-    top: "30%",
-  },
-  {
-    title: "UX/UI",
-    emoji: "🎨",
-    left: "70%",
-    top: "45%",
-  },
-  {
-    title: "SQL Databases",
-    emoji: "🗄️",
-    left: "50%",
-    top: "65%",
-  },
-  {
-    title: "Testing",
-    emoji: "🔍",
-    left: "65%",
-    top: "5%",
-  },
-  {
-    title: "SEO Optimization",
-    emoji: "🚀",
-    left: "15%",
-    top: "70%",
-  },
-];
-
 export const AboutSection = () => {
   const cardClasses = "h-[320px] p-6 relative flex flex-col gap-4";
   const constraintRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
+
+  const functionalSkills = [
+    {
+      title: t("toolBox.skills.webDevelopment"),
+      emoji: "🌐",
+      left: "10%",
+      top: "10%",
+    },
+    {
+      title: t("toolBox.skills.mobileDevelopment"),
+      emoji: "📱",
+      left: "5%",
+      top: "50%",
+    },
+    {
+      title: t("toolBox.skills.RESTAPI"),
+      emoji: "🔄",
+      left: "35%",
+      top: "30%",
+    },
+    {
+      title: t("toolBox.skills.uxUI"),
+      emoji: "🎨",
+      left: "70%",
+      top: "45%",
+    },
+    {
+      title: t("toolBox.skills.sql"),
+      emoji: "🗄️",
+      left: "50%",
+      top: "65%",
+    },
+    {
+      title: t("toolBox.skills.testing"),
+      emoji: "🔍",
+      left: "65%",
+      top: "5%",
+    },
+    {
+      title: t("toolBox.skills.seo"),
+      emoji: "🚀",
+      left: "15%",
+      top: "70%",
+    },
+  ];
+
   return (
     <>
-      <section className="container py-32">
+      <section className="container py-24">
         <SectionHeader
-          title="About Me"
-          eyebrow="A Glimpse into my world"
-          description="learn more about who I am, what I do and  what inspires me"
+          title={t("toolBox.title")}
+          eyebrow={t("toolBox.top")}
+          description={t("toolBox.description")}
         />
-        <div className="mt-16 md:mt-24 flex flex-col gap-8 md:gap-6">
+        <div className="mt-8 md:mt-16 flex flex-col gap-8 md:gap-6">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6">
             <Card className={twMerge(cardClasses, "md:col-span-2")}>
               <CardHeader
-                title="Summary"
-                description="A web / Frontend developer, located in Edmonton, AB."
+                title={t("toolBox.summary.title")}
+                description={t("toolBox.summary.description")}
               />
-              <div className="flex gap-6 absolute bottom-6 left-1/2 -translate-x-1/2">
+              <div className="flex gap-6 absolute bottom-8 left-1/2 -translate-x-1/2">
                 {linkItems.map((item) => (
                   <LinkIcon
                     key={item.title}
@@ -127,8 +130,8 @@ export const AboutSection = () => {
             </Card>
             <Card className={twMerge(cardClasses, "p-0 md:col-span-3")}>
               <CardHeader
-                title="Dev Toolbox"
-                description="Explore my core skills and capabilities"
+                title={t("toolBox.devtools.title")}
+                description={t("toolBox.devtools.description")}
                 className="px-6 pt-6"
               />
               <div className="flex flex-col gap-3">
@@ -149,8 +152,8 @@ export const AboutSection = () => {
               )}
             >
               <CardHeader
-                title="Functional Skills"
-                description="Explore my core skills"
+                title={t("toolBox.skills.title")}
+                description={t("toolBox.skills.description")}
                 className="px-6 pt-6"
               />
               <div className="flex-1 h-[220px] relative" ref={constraintRef}>

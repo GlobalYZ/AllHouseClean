@@ -1,20 +1,17 @@
+"use client";
+
 import StarIcon from "@/assets/icons/star.svg";
 import { MoveItems } from "@/components/MoveItems";
-
-const words = [
-  "Performant",
-  "Accessibile",
-  "Interactive",
-  "Scalable",
-  "User Friendly",
-  "Maintainable",
-  "SEO Optimized",
-  "Reliable",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const TapeSection = () => {
+  const { t } = useLanguage();
+  const words = t("tape")
+    .split(", ")
+    .filter((word) => word.trim() !== "");
+
   return (
-    <section className="py-32 lg:py-48 md:py-40 overflow-x-clip">
+    <div className="py-32 lg:py-48 md:py-40 overflow-x-clip">
       <div className="gradient-bg -rotate-6 -mx-1">
         <div className="mask-layer-tape">
           <MoveItems className="flex h-10 items-center gap-4">
@@ -29,6 +26,6 @@ export const TapeSection = () => {
           </MoveItems>
         </div>
       </div>
-    </section>
+    </div>
   );
 };

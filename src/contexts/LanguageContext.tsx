@@ -5,12 +5,11 @@ import en from "@/constants/lang/en";
 import zh from "@/constants/lang/zh";
 
 type Language = "en" | "zh";
-type Translations = typeof en;
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: keyof Translations) => string;
+  t: (path: string) => string;
 }
 
 const translations = {
@@ -25,8 +24,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
 
-  const t = (key: keyof Translations) => {
-    return translations[language][key];
+  const t = (path: string): string => {
+    const result = path.split(".").reduce((obj, key) => {
+      return (obj as any)?.[key] || "";
+    }, translations[language]);
+
+    return typeof result === "string" ? result : "";
   };
 
   return (
