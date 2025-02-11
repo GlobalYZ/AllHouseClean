@@ -147,7 +147,10 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
             <ArrowDown className="size-4" />
             <span className="font-semibold">{t("hero.buttonOne")}</span>
           </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:scale-105 transition-all duration-300">
+          <button
+            onClick={() => window.open("https://linkedin.com/in/muyangli1996")}
+            className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:scale-105 transition-all duration-300"
+          >
             <span>👋</span>
             <span className="font-semibold">{t("hero.buttonTwo")}</span>
           </button>
