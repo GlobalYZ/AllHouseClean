@@ -6,7 +6,16 @@ import { Card } from "@/components/Card";
 import JavascriptIcon from "@/assets/icons/square-js.svg";
 import HtmlIcon from "@/assets/icons/html5.svg";
 import CssIcon from "@/assets/icons/css3.svg";
+import NextIcon from "@/assets/icons/next.svg";
+import PythonIcon from "@/assets/icons/python.svg";
+import TypescriptIcon from "@/assets/icons/typescript.svg";
 import ReactIcon from "@/assets/icons/react.svg";
+import NodeIcon from "@/assets/icons/node.svg";
+import SqlIcon from "@/assets/icons/sql.svg";
+import JestIcon from "@/assets/icons/jest.svg";
+import DockerIcon from "@/assets/icons/docker.svg";
+import PhpIcon from "@/assets/icons/php.svg";
+import FigmaIcon from "@/assets/icons/figma.svg";
 import { ToolboxItems } from "@/components/About/ToolboxItems";
 import { twMerge } from "tailwind-merge";
 
@@ -25,6 +34,10 @@ const toolboxItems = [
     iconType: JavascriptIcon,
   },
   {
+    title: "Typescript",
+    iconType: TypescriptIcon,
+  },
+  {
     title: "HTML5",
     iconType: HtmlIcon,
   },
@@ -33,8 +46,43 @@ const toolboxItems = [
     iconType: CssIcon,
   },
   {
-    title: "React",
+    title: "React Ecosystem",
     iconType: ReactIcon,
+  },
+  {
+    title: "Jest",
+    iconType: JestIcon,
+  },
+  {
+    title: "Figma",
+    iconType: FigmaIcon,
+  },
+];
+
+const toolBoxItemsRowTwo = [
+  {
+    title: "Node.js",
+    iconType: NodeIcon,
+  },
+  {
+    title: "Next.js",
+    iconType: NextIcon,
+  },
+  {
+    title: "Python",
+    iconType: PythonIcon,
+  },
+  {
+    title: "PHP",
+    iconType: PhpIcon,
+  },
+  {
+    title: "SQL",
+    iconType: SqlIcon,
+  },
+  {
+    title: "Docker",
+    iconType: DockerIcon,
   },
 ];
 
@@ -42,14 +90,17 @@ const linkItems = [
   {
     title: "LinkedIn",
     iconType: LinkedinIcon,
+    link: "https://linkedin.com/in/muyangli1996",
   },
   {
     title: "Github",
     iconType: GithubIcon,
+    link: "https://github.com/GlobalYZ",
   },
   {
     title: "Dribble",
     iconType: DribbleIcon,
+    link: "https://dribbble.com/Muyang111",
   },
 ];
 
@@ -124,6 +175,7 @@ export const AboutSection = () => {
                     key={item.title}
                     component={item.iconType}
                     title={item.title}
+                    link={item.link}
                   />
                 ))}
               </div>
@@ -137,7 +189,7 @@ export const AboutSection = () => {
               <div className="flex flex-col gap-3">
                 <ToolboxItems toolboxItems={toolboxItems} className="mt-6" />
                 <ToolboxItems
-                  toolboxItems={toolboxItems}
+                  toolboxItems={toolBoxItemsRowTwo}
                   direction="right"
                   itemsWrapperClassName="-translate-x-1/2"
                 />

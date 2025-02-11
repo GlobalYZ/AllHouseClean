@@ -62,7 +62,7 @@ const zh = {
   toolBox: {
     title: "关于我",
     top: "了解更多",
-    description: "快速了解我的专业背景和技能",
+    description: "快速了解我的专业技能和背景",
     summary: {
       title: "自我介绍",
       description:

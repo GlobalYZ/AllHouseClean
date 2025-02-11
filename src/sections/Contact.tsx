@@ -3,6 +3,7 @@
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
 import { Card } from "@/components/Card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Link from "next/link";
 export const ContactSection = () => {
   const { t } = useLanguage();
   return (
@@ -18,10 +19,12 @@ export const ContactSection = () => {
             </p>
           </div>
           <div className="flex items-center justify-center px-16">
-            <button className="text-white bg-gray-900 inline-flex items-center gap-2 h-12 px-6 rounded-xl md:-mt-2 w-max border border-gray-900 hover:bg-black hover:scale-105 transition-all duration-300">
-              <span className="font-medium">{t("contact.button")}</span>
-              <ArrowUpRight className="size-4" />
-            </button>
+            <Link href="mailto:globalyy2020@gmail.com">
+              <button className="text-white bg-gray-900 inline-flex items-center gap-2 h-12 px-6 rounded-xl md:-mt-2 w-max border border-gray-900 hover:bg-black hover:scale-105 transition-all duration-300">
+                <span className="font-medium">{t("contact.button")}</span>
+                <ArrowUpRight className="size-4" />
+              </button>
+            </Link>
           </div>
         </div>
       </Card>
