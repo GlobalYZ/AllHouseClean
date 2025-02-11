@@ -228,14 +228,14 @@ export const AboutSection = () => {
                 ))}
               </div>
             </Card>
-            {/* <Card
+            <Card
               className={twMerge(
                 cardClasses,
                 "p-0 relative md:col-span-2 lg:col-span-1"
               )}
             >
               <Map />
-            </Card> */}
+            </Card>
           </div>
         </div>
       </section>
