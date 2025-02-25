@@ -120,7 +120,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
           className="size-[100px]"
           src={memojiImage}
           alt="Coding Memoji"
-          onLoadingComplete={() => setImageLoaded(true)}
+          onLoad={() => setImageLoaded(true)}
         />
         <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
           <div className="size-2.5 bg-green-500 rounded-full relative">

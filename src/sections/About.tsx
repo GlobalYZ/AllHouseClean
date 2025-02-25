@@ -16,6 +16,7 @@ import JestIcon from "@/assets/icons/jest.svg";
 import DockerIcon from "@/assets/icons/docker.svg";
 import PhpIcon from "@/assets/icons/php.svg";
 import FigmaIcon from "@/assets/icons/figma.svg";
+import WordpressIcon from "@/assets/icons/wordpress.svg";
 import { ToolboxItems } from "@/components/About/ToolboxItems";
 import { twMerge } from "tailwind-merge";
 
@@ -75,6 +76,10 @@ const toolBoxItemsRowTwo = [
   {
     title: "PHP",
     iconType: PhpIcon,
+  },
+  {
+    title: "Wordpress",
+    iconType: WordpressIcon,
   },
   {
     title: "SQL",
