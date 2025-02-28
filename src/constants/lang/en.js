@@ -67,7 +67,7 @@ asset to any organization.`,
     summary: {
       title: "Summary",
       description:
-        "I am a BCIT graduate with expertise in Front End / Web / Mobile Development. With 3 years of hands-on development experience and 1 year of work experience in the industr. I am eager to make one step further in my career and become a valuable asset to any organization.",
+        "Hi, my name is Miya. I recently graduated from BCIT with a diploma in Computer Systems Technology. I have three years of experience in JavaScript and web development, and I am also an experienced Junior Frontend Developer in the industry. Over the past years, I have built over 100 responsive web pages with great user experience, security, and accessibility.",
     },
     skills: {
       title: "Functional Skills",
