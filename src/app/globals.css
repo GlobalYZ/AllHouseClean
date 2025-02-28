@@ -23,11 +23,16 @@
     @apply inline-flex uppercase font-semibold tracking-widest gradient-bg text-transparent bg-clip-text text-center;
   }
 
+  .custom-scroll-bar {
+    @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full;
+  }
+
 }
 
 html, body {
   margin: 0;
   padding: 0;
+  @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/25 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full;
 }
 
 @layer utilities {
