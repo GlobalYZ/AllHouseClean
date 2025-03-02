@@ -12,7 +12,7 @@ export const useScrollEffect = (
       const currentPosition =
         window.scrollY || document.documentElement.scrollTop;
       if (
-        currentPosition >= beginSpot! - 400 &&
+        currentPosition >= beginSpot! - 600 &&
         currentPosition < endSpot! + 400
       ) {
         callback(currentPosition);
