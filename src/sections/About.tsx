@@ -98,14 +98,14 @@ const linkItems = [
     link: "https://linkedin.com/in/muyangli1996",
   },
   {
+    title: "Dribble, login to your Dribble account first to access",
+    iconType: DribbleIcon,
+    link: "https://dribbble.com/Muyang111",
+  },
+  {
     title: "Github",
     iconType: GithubIcon,
     link: "https://github.com/GlobalYZ",
-  },
-  {
-    title: "Dribble",
-    iconType: DribbleIcon,
-    link: "https://dribbble.com/Muyang111",
   },
 ];
 

@@ -7,8 +7,7 @@ A modern, responsive portfolio website built with Next.js and React, featuring a
 - Responsive design that works across all devices
 - Smooth animations and transitions
 - Multilingual support (English/Chinese)
-- Dynamic content loading with loading states
-- Custom scrollbar styling
+- customed utility classes on top of tailwind css
 - SEO optimized with meta tags
 
 ## 🛠️ Technologies

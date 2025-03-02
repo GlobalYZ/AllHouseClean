@@ -13,10 +13,7 @@ export const useScrollEffect = (
     const handleScroll = debounce(() => {
       const currentPosition =
         window.scrollY || document.documentElement.scrollTop;
-      if (
-        currentPosition >= beginSpot! - 500 &&
-        currentPosition < endSpot! + 400
-      ) {
+      if (currentPosition < endSpot! + 400) {
         callback(currentPosition);
       }
     }, 100);
