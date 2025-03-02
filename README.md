@@ -1,36 +1,96 @@
+# 🌟 Personal Portfolio Website
 
+A modern, responsive portfolio website built with Next.js and React, featuring a sleek design with animations and multilingual support.
 
-## Getting Started
+## 🚀 Features
 
-First, run the development server:
+- Responsive design that works across all devices
+- Smooth animations and transitions
+- Multilingual support (English/Chinese)
+- Dynamic content loading with loading states
+- Custom scrollbar styling
+- SEO optimized with meta tags
+
+## 🛠️ Technologies
+
+### Frontend
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+
+### Testing
+- Jest
+- React Testing Library
+- User event testing
+
+### Performance Optimization
+- Dynamic imports for code splitting
+- Image optimization with Next.js Image component
+- Lazy loading of components
+- Custom loading states for better UX
+- Efficient state management with React Context
+
+## 🧪 Testing
+
+The project includes comprehensive testing setup:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm test:watch
+
+# Generate coverage report
+npm test:coverage
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Key test suites:
+- Language context testing for multilingual support
+- Component rendering tests
+- User interaction tests
+- Error boundary testing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚡ Performance Optimizations
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Code Splitting**
+   - Dynamic imports for route-based code splitting
+   - Component lazy loading
 
-## Learn More
+2. **Asset Optimization**
+   - SVG icons for crisp rendering at any size
+   - Optimized image loading with Next.js Image
+   - Custom font loading optimization
 
-To learn more about Next.js, take a look at the following resources:
+3. **State Management**
+   - Efficient context usage for language switching
+   - Optimized re-renders with proper state management
+   - React Dev Tools Chrome extension for monitoring and minimizing re-renders
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Style Optimizations**
+   - Tailwind CSS for reduced CSS bundle size
+   - Custom utility classes for common styles
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/portfolio.git
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install dependencies:
+```bash
+npm install
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).

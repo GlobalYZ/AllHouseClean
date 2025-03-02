@@ -12,6 +12,8 @@ import { Card } from "@/components/Card";
 import { useScrollEffect } from "@/hooks/useScrollEffect";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import React from "react";
+
 interface Project {
   company: string;
   title: string;
@@ -20,61 +22,65 @@ interface Project {
   image: StaticImageData;
 }
 
-const ProjectCard = ({
-  project,
-  isVisible,
-  id,
-}: {
-  project: Project;
-  isVisible: boolean;
-  id: string;
-}) => {
-  return (
-    <div id={id}>
-      <Card
-        key={project.title}
-        className={`projects pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-1000 ease-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-        }`}
-      >
-        <div className="lg:grid lg:grid-cols-2 lg:gap-12">
-          <div className="lg:pb-16">
-            <div className="gradient-text font-bold gap-2 text-sm">
-              <span>{project.company}</span>
-            </div>
+const ProjectCard = React.memo(
+  ({
+    project,
+    isVisible,
+    id,
+  }: {
+    project: Project;
+    isVisible: boolean;
+    id: string;
+  }) => {
+    return (
+      <div id={id}>
+        <Card
+          key={project.title}
+          className={`projects pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <div className="lg:grid lg:grid-cols-2 lg:gap-12">
+            <div className="lg:pb-16">
+              <div className="gradient-text font-bold gap-2 text-sm">
+                <span>{project.company}</span>
+              </div>
 
-            <h3 className="text-2xl font-serif mt-2 md:mt-5 md:text-4xl">
-              {project.title}
-            </h3>
-            <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
-            <ul className="flex flex-col gap-4 mt-4 md:mt-5">
-              {project.results.map((result) => (
-                <li
-                  key={result.title}
-                  className="flex items-center gap-2 text-sm md:text-base text-white/50 "
-                >
-                  <CheckCircleIcon className="size-5 md:size-6 min-w-5 min-h-5" />
-                  <span>{result.title}</span>
-                </li>
-              ))}
-            </ul>
-            <a href={project.link} className="btn my-8">
-              <span>Explore More</span>
-              <ArrowUpRightIcon className="size-4" />
-            </a>
+              <h3 className="text-2xl font-serif mt-2 md:mt-5 md:text-4xl">
+                {project.title}
+              </h3>
+              <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
+              <ul className="flex flex-col gap-4 mt-4 md:mt-5">
+                {project.results.map((result) => (
+                  <li
+                    key={result.title}
+                    className="flex items-center gap-2 text-sm md:text-base text-white/50 "
+                  >
+                    <CheckCircleIcon className="size-5 md:size-6 min-w-5 min-h-5" />
+                    <span>{result.title}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={project.link} className="btn my-8">
+                <span>Explore More</span>
+                <ArrowUpRightIcon className="size-4" />
+              </a>
+            </div>
+            <div className="relative">
+              <Image
+                src={project.image}
+                alt={project.title}
+                className="-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
+              />
+            </div>
           </div>
-          <div className="relative">
-            <Image
-              src={project.image}
-              alt={project.title}
-              className="-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
-            />
-          </div>
-        </div>
-      </Card>
-    </div>
-  );
-};
+        </Card>
+      </div>
+    );
+  }
+);
+
+ProjectCard.displayName = "ProjectCard";
 
 export const ProjectsSection = () => {
   const { t } = useLanguage();
