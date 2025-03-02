@@ -33,7 +33,7 @@ const ProjectCard = ({
     <div id={id}>
       <Card
         key={project.title}
-        className={`pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-1000 ease-out ${
+        className={`projects pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -126,7 +126,10 @@ export const ProjectsSection = () => {
     Array(portfolioProjects.length).fill(false)
   );
 
-  useScrollEffect(400, (currentPosition) => {
+  const stopOne = document.getElementById(`project-0`)?.offsetTop;
+  const length = portfolioProjects.length;
+  const stopTwo = document.getElementById(`project-${length - 1}`)?.offsetTop;
+  useScrollEffect(400, stopOne, stopTwo, (currentPosition) => {
     portfolioProjects.forEach((_, index) => {
       const cardTop = document.getElementById(`project-${index}`)?.offsetTop;
       if (currentPosition >= cardTop! - 400) {
