@@ -10,7 +10,7 @@ import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { Card } from "@/components/Card";
 import { useScrollEffect } from "@/hooks/useScrollEffect";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 interface Project {
   company: string;
@@ -125,28 +125,41 @@ export const ProjectsSection = () => {
   const [visibleCards, setVisibleCards] = useState<boolean[]>(
     Array(portfolioProjects.length).fill(false)
   );
+  const [stopPositions, setStopPositions] = useState<{
+    stopOne?: number;
+    stopTwo?: number;
+  }>({});
 
-  const stopOne = document.getElementById(`project-0`)?.offsetTop;
-  const length = portfolioProjects.length;
-  const stopTwo = document.getElementById(`project-${length - 1}`)?.offsetTop;
-  useScrollEffect(400, stopOne, stopTwo, (currentPosition) => {
-    portfolioProjects.forEach((_, index) => {
-      const cardTop = document.getElementById(`project-${index}`)?.offsetTop;
-      if (currentPosition >= cardTop! - 400) {
-        setVisibleCards((prev) => {
-          const newVisibility = [...prev];
-          newVisibility[index] = true;
-          return newVisibility;
-        });
-      } else {
-        setVisibleCards((prev) => {
-          const newVisibility = [...prev];
-          newVisibility[index] = false;
-          return newVisibility;
-        });
-      }
-    });
-  });
+  useEffect(() => {
+    const stopOne = document.getElementById(`project-0`)?.offsetTop;
+    const length = portfolioProjects.length;
+    const stopTwo = document.getElementById(`project-${length - 1}`)?.offsetTop;
+    setStopPositions({ stopOne, stopTwo });
+  }, []);
+
+  useScrollEffect(
+    400,
+    stopPositions.stopOne,
+    stopPositions.stopTwo,
+    (currentPosition) => {
+      portfolioProjects.forEach((_, index) => {
+        const cardTop = document.getElementById(`project-${index}`)?.offsetTop;
+        if (currentPosition >= cardTop! - 400) {
+          setVisibleCards((prev) => {
+            const newVisibility = [...prev];
+            newVisibility[index] = true;
+            return newVisibility;
+          });
+        } else {
+          setVisibleCards((prev) => {
+            const newVisibility = [...prev];
+            newVisibility[index] = false;
+            return newVisibility;
+          });
+        }
+      });
+    }
+  );
 
   return (
     <>
