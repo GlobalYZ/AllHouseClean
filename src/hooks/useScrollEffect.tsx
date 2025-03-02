@@ -8,11 +8,14 @@ export const useScrollEffect = (
   callback: (currentPosition: number) => void
 ) => {
   useEffect(() => {
+    // 检查是否在浏览器环境
+    if (typeof window === "undefined") return;
+
     const handleScroll = debounce(() => {
       const currentPosition =
         window.scrollY || document.documentElement.scrollTop;
       if (
-        currentPosition >= beginSpot! - 600 &&
+        currentPosition >= beginSpot! - 500 &&
         currentPosition < endSpot! + 400
       ) {
         callback(currentPosition);
