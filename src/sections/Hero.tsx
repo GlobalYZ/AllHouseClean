@@ -4,9 +4,7 @@ import memojiImage from "@/assets/images/memoji-coding.png";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import Image from "next/image";
 import grainImage from "@/assets/images/grain.jpg";
-import StarIcon from "@/assets/icons/star.svg";
-import SparklesIcon from "@/assets/icons/sparkle.svg";
-import { HeroOrbit } from "@/components/heroOrbit";
+import backgroundImage from "@/assets/images/heroBg.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
 
@@ -50,11 +48,11 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
 
   return (
     <div className="h-screen py-32 md:py-48 lg:py-60 relative z-0 overflow-x-hidden">
-      <section className="container flex flex-col items-center justify-center h-full">
+      <section className="container h-full p-20">
         <Image
-          className="size-[100px]"
-          src={memojiImage}
-          alt="Coding Memoji"
+          className="size-full object-cover absolute inset-0"
+          src={backgroundImage}
+          alt="Hero Background"
           onLoad={() => setImageLoaded(true)}
         />
 

@@ -4,7 +4,7 @@
 
 @layer base {
   .nav-item {
-    @apply px-4 py-1.5 rounded text-primary hover:bg-slate-200 font-semibold hover:text-primary/90 transition duration-300;
+    @apply px-2 py-1.5 rounded text-primary hover:text-primary-100 font-semibold hover:text-primary/90 transition duration-300;
   }
 
   .hero-ring {
@@ -12,7 +12,11 @@
   }
 
   .btn {
-    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-white text-gray-950 md:w-auto px-6;
+    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-primary text-white md:w-auto px-6 hover:scale-105 transition duration-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-secondary border border-secondary-500 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
   }
 
   .gradient-bg {
