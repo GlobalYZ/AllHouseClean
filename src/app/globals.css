@@ -19,8 +19,20 @@
     @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-secondary border border-secondary-500 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
   }
 
+  .contact-item {
+    @apply flex items-start mb-3 md:mb-5 gap-1 md:gap-4 text-gray-900 text-sm;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-500 to-primary-600 border border-primary-600;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-secondary-500 to-secondary-600 border border-secondary-600;
+  }
+
   .gradient-bg {
-    @apply bg-gradient-to-r from-emerald-300 to-sky-400;
+    @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500;
   }
 
   .gradient-text {

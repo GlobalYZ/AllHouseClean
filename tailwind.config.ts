@@ -51,7 +51,7 @@ const config: Config = {
           '900': '#3e4720',
           '950': '#20260d',
       },
-        background: "#eeeae7",
+        background: "#efefef",
       },
       fontFamily: {
         sans: "var(--font-sans)",

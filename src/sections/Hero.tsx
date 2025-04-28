@@ -1,25 +1,41 @@
 "use client";
 
-import memojiImage from "@/assets/images/memoji-coding.png";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import Image from "next/image";
 import grainImage from "@/assets/images/grain.jpg";
 import backgroundImage from "@/assets/images/heroBg.jpeg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
+import PhoneIcon from "@/assets/icons/phone_calling.svg";
+import EmailIcon from "@/assets/icons/email.svg";
+import LocationIcon from "@/assets/icons/location.svg";
 
-const starRings = (
-  <div
-    className="absolute inset-0 overflow-hidden -z-10"
-    style={{
-      maskImage:
-        "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0))",
-    }}
-  >
-    <div
-      className="absolute inset-0 -z-10 opacity-5"
-      style={{ backgroundImage: `url(${grainImage.src})` }}
-    ></div>
+const contactBlock = (
+  <div className="relative rounded-lg bg-white p-6 md:p-12 shadow-md">
+    <div className="absolute top-0 left-0 w-8 h-8 bg-green-500 rounded-full -ml-4 -mt-4"></div>
+    <div className="absolute bottom-0 right-0 w-8 h-8 bg-green-500 rounded-full -mr-4 -mb-4"></div>
+    <h2 className="text-xl font-semibold text-gray-800 my-4 text-center">
+      Connect with us
+    </h2>
+    <div className="contact-item">
+      <PhoneIcon className="w-5 h-5" />
+      <a href="tel:(780) 669-4879">(780) 669-4879</a>
+    </div>
+    <div className="contact-item">
+      <EmailIcon className="w-5 h-5" />
+      <a href="mailto:edmonton@maidpro.com">edmonton@maidpro.com</a>
+    </div>
+    <div className="contact-item mb-6">
+      <LocationIcon className="w-5 h-5" />
+      <address>
+        18012 105 Ave NW #101
+        <br />
+        Edmonton, AB T5S 2P1
+      </address>
+    </div>
+    <div className="flex justify-center mb-4">
+      <button className="btn-secondary">Contact Us</button>
+    </div>
   </div>
 );
 
@@ -48,7 +64,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
 
   return (
     <div className="h-screen py-32 md:py-48 lg:py-60 relative z-0 overflow-x-hidden">
-      <section className="container h-full p-20">
+      <section className="h-full p-20 flex justify-center items-center">
         <Image
           className="size-full object-cover absolute inset-0"
           src={backgroundImage}
@@ -56,20 +72,21 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
           onLoad={() => setImageLoaded(true)}
         />
 
-        <button
-          onClick={handleExploreWork}
-          className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:scale-105 transition-all duration-300"
-        >
-          <ArrowDown className="size-4" />
-          <span className="font-semibold">{t("hero.buttonOne")}</span>
-        </button>
-        <button
-          onClick={() => window.open("https://linkedin.com/in/muyangli1996")}
-          className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:scale-105 transition-all duration-300"
-        >
-          <span>👋</span>
-          <span className="font-semibold">{t("hero.buttonTwo")}</span>
-        </button>
+        <div className="flex flex-col md:flex-row gap-12 md:gap-36 md:justify-center mb-8 h-full">
+          <div className="relative group py-4 w-full max-w-[480px]">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/20 to-primary/30 backdrop-blur-xl rounded-3xl md:scale-105 shadow-2xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
+            <div className="relative p-8 md:p-10 rounded-3xl text-primary font-semibold h-full flex flex-col justify-center">
+              <p className="text-3xl md:text-4xl mb-3 tracking-tight leading-tight">
+                Clean living made simple
+              </p>
+              <p className="text-xl md:text-xl italic font-light">
+                — starting with All House Clean
+              </p>
+            </div>
+          </div>
+          <div>{contactBlock}</div>
+        </div>
       </section>
     </div>
   );

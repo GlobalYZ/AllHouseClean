@@ -110,7 +110,7 @@ export const Header = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="fixed z-10 w-full flex h-20 px-4 lg:px-6 justify-between items-center bg-background">
+    <div className="fixed z-10 w-full flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
       <div className="flex items-center gap-8">
         <p className="text-2xl font-bold text-primary">logo placeholder</p>
         <Nav
