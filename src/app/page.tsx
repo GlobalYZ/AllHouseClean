@@ -12,14 +12,12 @@ const ProjectsSection = dynamic(() =>
   import("@/sections/Projects").then((mod) => mod.ProjectsSection)
 );
 
+const CheckList = dynamic(() =>
+  import("@/sections/CheckList").then((mod) => mod.CheckList)
+);
+
 const TestimonialsSection = dynamic(() =>
   import("@/sections/Testimonials").then((mod) => mod.TestimonialsSection)
-);
-const AboutSection = dynamic(() =>
-  import("@/sections/About").then((mod) => mod.AboutSection)
-);
-const ContactSection = dynamic(() =>
-  import("@/sections/Contact").then((mod) => mod.ContactSection)
 );
 const Footer = dynamic(() =>
   import("@/sections/Footer").then((mod) => mod.Footer)
@@ -50,10 +48,9 @@ export default function Home() {
         </div>
       )}
       <Services />
+      <CheckList />
       <ProjectsSection />
       <TestimonialsSection />
-      <AboutSection />
-      <ContactSection />
       <Footer />
     </div>
   );

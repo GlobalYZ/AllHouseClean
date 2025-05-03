@@ -32,8 +32,8 @@ export const Services = () => {
     <section className="py-16 px-4 container mx-auto">
       <SectionHeader
         eyebrow="Our Services"
-        title="What We Offer"
-        description="Discover our comprehensive range of services designed to meet your needs"
+        title="公司简介"
+        description="家洁生活服务提供专业的清洁服务，确保您的家居环境整洁舒适"
       />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {services.map((service, index) => (

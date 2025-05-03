@@ -12,6 +12,7 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@react-google-maps/api": "^2.20.5",
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^11.3.21",

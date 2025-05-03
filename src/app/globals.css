@@ -44,6 +44,40 @@
   }
 }
 
+@layer components {
+  .form-container {
+    @apply max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg;
+  }
+
+  .form-group {
+    @apply mb-6;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition duration-200;
+  }
+
+  .form-button {
+    @apply w-full py-3 px-4 text-white font-medium rounded-md transition duration-200 bg-primary hover:bg-primary/90 disabled:bg-primary/60 disabled:cursor-not-allowed;
+  }
+
+  .form-message {
+    @apply mt-4 p-4 rounded-md;
+  }
+
+  .form-message-success {
+    @apply bg-green-50 text-green-800;
+  }
+
+  .form-message-error {
+    @apply bg-red-50 text-red-800;
+  }
+}
+
 html, body {
   margin: 0;
   padding: 0;

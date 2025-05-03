@@ -114,7 +114,7 @@ export const ProjectsSection = () => {
 
   return (
     <>
-      <section className="container scroll-pb-16 lg:py-24">
+      <section className="container scroll-pb-16 lg:py-24 py-16">
         <SectionHeader
           title="成功案例"
           eyebrow="我们的工作"
