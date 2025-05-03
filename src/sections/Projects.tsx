@@ -1,77 +1,82 @@
 "use client";
 
-import snewsCover from "@/assets/images/SNEWS.png";
-import vacapalCover from "@/assets/images/vacapal.png";
-import portfolioCover from "@/assets/images/portfolio.jpg";
-import taleMalerCover from "@/assets/images/TaleMaker.png";
 import { SectionHeader } from "@/components/SectionHeader";
-import Image, { StaticImageData } from "next/image";
-import CheckCircleIcon from "@/assets/icons/check-circle.svg";
-import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import { Card } from "@/components/Card";
-import { useScrollEffect } from "@/hooks/useScrollEffect";
-import { useState, useEffect } from "react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 import React from "react";
+import Image from "next/image";
+import placeholder1 from "@/assets/images/light-saas-landing-page.png";
+import placeholder2 from "@/assets/images/dark-saas-landing-page.png";
 
 interface Project {
-  company: string;
   title: string;
-  results: { title: string }[];
+  date: string;
   link: string;
-  image: StaticImageData;
+  before: string;
+  after: string;
 }
 
 const ProjectCard = React.memo(
-  ({
-    project,
-    isVisible,
-    id,
-  }: {
-    project: Project;
-    isVisible: boolean;
-    id: string;
-  }) => {
+  ({ project, id, index }: { project: Project; id: string; index: number }) => {
+    const [showAfter, setShowAfter] = useState(false);
+
+    React.useEffect(() => {
+      const interval = setInterval(() => {
+        setShowAfter((prev) => !prev);
+      }, 3000);
+      return () => clearInterval(interval);
+    }, []);
+
     return (
-      <div id={id}>
+      <div
+        id={id}
+        className="sticky top-40"
+        style={{ top: `${100 + index * 40}px` }}
+      >
         <Card
           key={project.title}
-          className={`projects pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 transition-all duration-1000 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className="projects pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20"
         >
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12">
-            <div className="lg:pb-16">
-              <div className="gradient-text font-bold gap-2 text-sm">
-                <span>{project.company}</span>
-              </div>
-
+          <div className="lg:flex lg:items-center lg:gap-12">
+            <div className="lg:w-[200px] lg:pb-16 lg:max-w-[50%]">
               <h3 className="text-2xl font-serif mt-2 md:mt-5 md:text-4xl">
                 {project.title}
               </h3>
+              <div className="gradient-text font-bold gap-2 text-sm mt-2">
+                <span>{project.date}</span>
+              </div>
               <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
-              <ul className="flex flex-col gap-4 mt-4 md:mt-5">
-                {project.results.map((result) => (
-                  <li
-                    key={result.title}
-                    className="flex items-center gap-2 text-sm md:text-base text-white/50 "
-                  >
-                    <CheckCircleIcon className="size-5 md:size-6 min-w-5 min-h-5" />
-                    <span>{result.title}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href={project.link} className="btn my-8">
-                <span>Explore More</span>
-                <ArrowUpRightIcon className="size-4" />
-              </a>
             </div>
-            <div className="relative">
-              <Image
-                src={project.image}
-                alt={project.title}
-                className="-mb-4 md:-mb-0 lg:absolute lg:h-full lg:w-auto lg:max-w-none"
-              />
+            <div className="relative h-[200px] md:h-[350px] lg:flex-1 lg:w-[500px] lg:flex-shrink-0 bg-gray-800 rounded-lg overflow-hidden p-4">
+              <div
+                className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
+                  showAfter
+                    ? "opacity-0 -translate-y-4"
+                    : "opacity-100 translate-y-0"
+                }`}
+              >
+                <Image
+                  src={placeholder1}
+                  alt="清洁前"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+              <div
+                className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${
+                  showAfter
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
+                <Image
+                  src={placeholder2}
+                  alt="清洁后"
+                  className="object-contain"
+                  fill
+                  priority
+                />
+              </div>
             </div>
           </div>
         </Card>
@@ -83,105 +88,45 @@ const ProjectCard = React.memo(
 ProjectCard.displayName = "ProjectCard";
 
 export const ProjectsSection = () => {
-  const { t } = useLanguage();
-
   const portfolioProjects = [
     {
-      company: t("projectItems.ProjectOne.company"),
-      title: t("projectItems.ProjectOne.title"),
-      results: t("projectItems.ProjectOne.results")
-        .split("。")
-        .filter((result) => result.trim() !== "")
-        .map((result) => ({ title: result })),
+      title: "西南独立屋",
+      date: "2025年5月2日",
       link: "#",
-      image: portfolioCover,
+      before: "地板有顽固污渍，厨房油渍严重，卫生间有异味",
+      after: "地板焕然一新，厨房洁净如新，卫生间清新无异味",
     },
     {
-      company: t("projectItems.ProjectTwo.company"),
-      title: t("projectItems.ProjectTwo.title"),
-      results: t("projectItems.ProjectTwo.results")
-        .split("。")
-        .filter((result) => result.trim() !== "")
-        .map((result) => ({ title: result })),
-      link: "https://youtu.be/jKHDxArC5c8",
-      image: snewsCover,
+      title: "市中心公寓",
+      date: "2025年4月15日",
+      link: "#",
+      before: "窗户积灰严重，地毯有污渍，浴室水垢明显",
+      after: "窗户明亮如新，地毯洁净无痕，浴室焕然一新",
     },
     {
-      company: t("projectItems.ProjectThree.company"),
-      title: t("projectItems.ProjectThree.title"),
-      results: t("projectItems.ProjectThree.results")
-        .split("。")
-        .filter((result) => result.trim() !== "")
-        .map((result) => ({ title: result })),
-      link: "https://www.youtube.com/watch?v=f8QPXhOJlO0",
-      image: vacapalCover,
-    },
-    {
-      company: t("projectItems.ProjectFour.company"),
-      title: t("projectItems.ProjectFour.title"),
-      results: t("projectItems.ProjectFour.results")
-        .split("。")
-        .filter((result) => result.trim() !== "")
-        .map((result) => ({ title: result })),
-      link: "https://youtu.be/OGiRua0rEb4",
-      image: taleMalerCover,
+      title: "东区别墅",
+      date: "2025年3月28日",
+      link: "#",
+      before: "庭院杂草丛生，室内灰尘堆积，厨房油污严重",
+      after: "庭院整洁美观，室内一尘不染，厨房洁净如新",
     },
   ];
-
-  const [visibleCards, setVisibleCards] = useState<boolean[]>(
-    Array(portfolioProjects.length).fill(false)
-  );
-  const [stopPositions, setStopPositions] = useState<{
-    stopOne?: number;
-    stopTwo?: number;
-  }>({});
-
-  useEffect(() => {
-    const stopOne = document.getElementById(`project-0`)?.offsetTop;
-    const length = portfolioProjects.length;
-    const stopTwo = document.getElementById(`project-${length - 1}`)?.offsetTop;
-    setStopPositions({ stopOne, stopTwo });
-  }, []);
-
-  useScrollEffect(
-    400,
-    stopPositions.stopOne,
-    stopPositions.stopTwo,
-    (currentPosition) => {
-      portfolioProjects.forEach((_, index) => {
-        const cardTop = document.getElementById(`project-${index}`)?.offsetTop;
-        if (currentPosition >= cardTop! - 400) {
-          setVisibleCards((prev) => {
-            const newVisibility = [...prev];
-            newVisibility[index] = true;
-            return newVisibility;
-          });
-        } else {
-          setVisibleCards((prev) => {
-            const newVisibility = [...prev];
-            newVisibility[index] = false;
-            return newVisibility;
-          });
-        }
-      });
-    }
-  );
 
   return (
     <>
       <section className="container scroll-pb-16 lg:py-24">
         <SectionHeader
-          title={t("projectItems.title")}
-          eyebrow={t("projectItems.top")}
-          description={t("projectItems.description")}
+          title="成功案例"
+          eyebrow="我们的工作"
+          description="展示我们专业的清洁服务成果"
         />
-        <div className="flex flex-col mt-10 md:mt-20 gap-20">
+        <div className="flex flex-col mt-10 md:mt-20 gap-20 min-h-[300vh]">
           {portfolioProjects.map((project, index) => (
             <ProjectCard
               key={project.title}
               id={`project-${index}`}
               project={project}
-              isVisible={visibleCards[index]}
+              index={index}
             />
           ))}
         </div>

@@ -4,19 +4,19 @@
 
 @layer base {
   .nav-item {
-    @apply px-2 py-1.5 rounded text-primary hover:text-primary-100 font-semibold hover:text-primary/90 transition duration-300;
+    @apply px-2 py-1.5 rounded text-primary-600 hover:text-primary-400 font-semibold transition duration-300;
   }
 
   .hero-ring {
-    @apply inset-0 -z-10 border-2 rounded-full border-emerald-300/5  shadow-[0_0_80px_inset] shadow-emerald-300/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply inset-0 -z-10 border-2 rounded-full border-primary-300/5 shadow-[0_0_80px_inset] shadow-primary-300/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
 
   .btn {
-    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-primary text-white md:w-auto px-6 hover:scale-105 transition duration-300;
+    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-primary-600 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
   }
 
   .btn-secondary {
-    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-secondary border border-secondary-500 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
+    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-secondary-400 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
   }
 
   .contact-item {
@@ -32,23 +32,23 @@
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-500;
+    @apply bg-gradient-to-r from-primary-400 to-primary-600;
   }
 
   .gradient-text {
     @apply inline-flex uppercase font-semibold tracking-widest gradient-bg text-transparent bg-clip-text text-center;
   }
 
-  .custom-scroll-bar {
-    @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full;
+  .primary-to-white {
+    @apply bg-gradient-to-br from-primary-200 via-primary-50 to-white;
   }
-
 }
 
 html, body {
   margin: 0;
   padding: 0;
-  @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-white/25 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full;
+  color: black;
+  @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-gray-300/15 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:rounded-full;
 }
 
 @layer utilities {

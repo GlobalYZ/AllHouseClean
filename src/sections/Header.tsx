@@ -112,7 +112,7 @@ export const Header = () => {
   return (
     <div className="fixed z-10 w-full flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
       <div className="flex items-center gap-8">
-        <p className="text-2xl font-bold text-primary">logo placeholder</p>
+        <p className="text-2xl font-bold text-primary-600">logo placeholder</p>
         <Nav
           isOpen={isMenuOpen}
           onClose={() => setIsMenuOpen(false)}
@@ -127,17 +127,17 @@ export const Header = () => {
         >
           <div className="w-6 h-5 flex flex-col justify-between relative">
             <span
-              className={`h-0.5 w-full bg-primary transition-all duration-300 origin-center ${
+              className={`h-0.5 w-full bg-primary-600 transition-all duration-300 origin-center ${
                 isMenuOpen ? "rotate-45 translate-y-[9px]" : ""
               }`}
             />
             <span
-              className={`h-0.5 w-full bg-primary transition-all duration-300 ${
+              className={`h-0.5 w-full bg-primary-600 transition-all duration-300 ${
                 isMenuOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`h-0.5 w-full bg-primary transition-all duration-300 origin-center ${
+              className={`h-0.5 w-full bg-primary-600 transition-all duration-300 origin-center ${
                 isMenuOpen ? "-rotate-45 -translate-y-[9px]" : ""
               }`}
             />

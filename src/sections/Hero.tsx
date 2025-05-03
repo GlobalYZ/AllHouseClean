@@ -63,17 +63,21 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
   };
 
   return (
-    <div className="h-screen py-32 md:py-48 lg:py-60 relative z-0 overflow-x-hidden">
-      <section className="h-full p-20 flex justify-center items-center">
-        <Image
-          className="size-full object-cover absolute inset-0"
-          src={backgroundImage}
-          alt="Hero Background"
-          onLoad={() => setImageLoaded(true)}
-        />
+    <div className="relative z-0">
+      <section className="p-20 flex justify-center items-center h-screen">
+        <div className="absolute z-0 inset-0">
+          <Image
+            className="w-full h-full object-cover"
+            src={backgroundImage}
+            alt="Hero Background"
+            onLoad={() => setImageLoaded(true)}
+            fill
+            priority
+          />
+        </div>
 
-        <div className="flex flex-col md:flex-row gap-12 md:gap-36 md:justify-center mb-8 h-full">
-          <div className="relative group py-4 w-full max-w-[480px]">
+        <div className="flex flex-col md:flex-row gap-16 md:gap-36 md:justify-center mb-8 h-full pt-32 md:pt-48 lg:pt-60">
+          <div className="relative group py-4 w-full max-w-[480px] min-w-[320px] h-40">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/20 to-primary/30 backdrop-blur-xl rounded-3xl md:scale-105 shadow-2xl animate-pulse"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl"></div>
             <div className="relative p-8 md:p-10 rounded-3xl text-primary font-semibold h-full flex flex-col justify-center">

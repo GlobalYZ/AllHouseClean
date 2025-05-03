@@ -36,7 +36,7 @@ const config: Config = {
           '800': '#155e75',
           '900': '#164e63',
           '950': '#083344',
-      },
+        },
         secondary: {
           DEFAULT: '#b5c55e',
           '50': '#f8f9ec',
@@ -50,7 +50,7 @@ const config: Config = {
           '800': '#485222',
           '900': '#3e4720',
           '950': '#20260d',
-      },
+        },
         background: "#efefef",
       },
       fontFamily: {

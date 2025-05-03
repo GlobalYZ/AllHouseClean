@@ -11,7 +11,7 @@ export const Card = ({
   return (
     <article
       className={twMerge(
-        "bg-gray-800 overflow-hidden rounded-3xl relative z-0 border-2 border-white/20 pb-0",
+        "primary-to-white overflow-hidden rounded-3xl relative z-0 border-2 shadow-xl pb-0",
         className
       )}
     >
