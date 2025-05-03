@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { usePopup } from "./popup";
+
+// Initialize EmailJS with environment variables
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+
+if (!EMAILJS_PUBLIC_KEY) {
+  console.error("EmailJS public key is not configured");
+}
+
+emailjs.init(EMAILJS_PUBLIC_KEY || "");
 
 interface FormData {
   name: string;
   email: string;
-  phone: string;
   message: string;
 }
 
 const ContactForm: React.FC = () => {
+  const { showSuccess, showError } = usePopup();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    phone: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,39 +41,39 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      showError(
+        "EmailJS configuration is incomplete. Please check your environment variables."
+      );
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const templateParams = {
         to_email: "globalYY2020@gmail.com",
         from_name: formData.name,
         from_email: formData.email,
-        phone: formData.phone || "未提供",
         message: formData.message,
       };
 
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         templateParams,
-        "YOUR_PUBLIC_KEY"
+        EMAILJS_PUBLIC_KEY
       );
 
-      setSubmitStatus({
-        type: "success",
-        message: "消息已成功发送！",
-      });
+      showSuccess("消息已成功发送！");
       setFormData({
         name: "",
         email: "",
-        phone: "",
         message: "",
       });
     } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message: "发送失败，请稍后重试。",
-      });
+      console.error("EmailJS error:", error);
+      showError("发送失败，请稍后重试。");
     } finally {
       setIsSubmitting(false);
     }
@@ -105,20 +112,6 @@ const ContactForm: React.FC = () => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="phone" className="form-label">
-          电话（选填）
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          className="form-input"
-        />
-      </div>
-
-      <div className="form-group">
         <label htmlFor="message" className="form-label">
           消息内容 *
         </label>
@@ -136,18 +129,6 @@ const ContactForm: React.FC = () => {
       <button type="submit" disabled={isSubmitting} className="form-button">
         {isSubmitting ? "发送中..." : "发送消息"}
       </button>
-
-      {submitStatus.type && (
-        <div
-          className={`form-message ${
-            submitStatus.type === "success"
-              ? "form-message-success"
-              : "form-message-error"
-          }`}
-        >
-          {submitStatus.message}
-        </div>
-      )}
     </form>
   );
 };
