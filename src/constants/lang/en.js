@@ -23,9 +23,9 @@ const en = {
   },
   description: {
     paragraphs: [
-      "As a comprehensive residential cleaning service company based in Edmonton, we are dedicated to helping every customer who needs us. Our patient and meticulous customer service, reliable and standardized processes, and our commitment to cleaning results with no fear of rework have allowed us to go further with good reputation.",
-      "Trust us with your cleaning tasks, and we will use professional techniques and tools to ensure every corner of your home receives full attention, returning to you a clean home.",
-      "We thank every customer who has supported us long-term, introduced new friends to us, and encouraged us with heartwarming reviews. We always believe that quality and reputation are the most long-lasting, and we are confident in becoming your most trustworthy choice.",
+      "As a residential cleaning company based in Edmonton, we’re here to support every customer who needs us — with care, patience, and professionalism.",
+      "From friendly communication to a reliable, step-by-step service process, and our promise to re-clean if needed, our reputation has grown one happy client at a time.",
+      "You can trust us to take care of your home like it’s our own. With the right tools and skills, we’ll give every corner the attention it deserves — and leave your space fresh, tidy, and stress-free.",
     ],
   },
   services: {
@@ -198,22 +198,22 @@ const en = {
       description: "",
     },
     introduction:
-      "We are a cleaning team rooted in Edmonton, professionally serving local customers. We truly love the cleaning industry, continuously learning and growing, completing each service with the most sincere attitude. Whether it's daily cleaning, deep cleaning, or move-out cleaning, we take every task seriously and serve each customer with dedication.",
+      "We genuinely love what we do — cleaning isn’t just a task to us, it’s something we take pride in. Whether it’s regular cleaning, deep cleaning, or move-out services, we approach every job with care and respect for your space.",
     features: [
       {
         title: "Professional",
         description:
-          "We have sufficient knowledge and techniques for different cleaning areas and materials.",
+          "We understand the right methods and tools for different materials and surfaces — so nothing is damaged, and everything shines.",
       },
       {
         title: "Reliable",
         description:
-          "We guarantee cleaning results with free rework for any substandard areas.",
+          "We stand by our work. If something’s not up to standard, we’ll come back and fix it — free of charge, no hassle.",
       },
       {
         title: "Safe",
         description:
-          "Our cleaning tools and agents are sourced from Home Depot, efficient, reliable, and harmless to living beings.",
+          "All our products and equipment are sourced from Home Depot — effective, reliable, and safe for kids, pets, and the environment.",
       },
     ],
   },

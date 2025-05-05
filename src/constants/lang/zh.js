@@ -12,7 +12,7 @@ const zh = {
     subtitle: "— 从全屋清洁开始",
     contact: {
       title: "联系我们",
-      phone: "(780) 669-4879",
+      phone: "(780) 669-4879 (message-only)",
       email: "service@allhouseclean.ca",
       address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
       button: "联系我们",
@@ -188,7 +188,7 @@ const zh = {
       description: "",
     },
     introduction:
-      "我们是扎根于埃德蒙顿的清洁团队，专业服务本地客户。我们真心热爱清洁事业，不断学习、不断成长，以最诚恳的态度完成每一次服务，无论是日常清洁、深度清洁还是退租清洁，我们都会认真面对，用心服务好每一位客户。",
+      "我们是扎根于埃德蒙顿的清洁团队，专业服务本地客户。我们真心热爱清洁事业，不断学习、不断成长，以最诚恳的态度完成每一次服务，无论是日常清洁、深度清洁还是退租清洁，我们都会认真面对，用心服务好每一位客户。 ",
     features: [
       {
         title: "专业",
@@ -224,7 +224,7 @@ const zh = {
       services: "服务项目",
       contact: "联系我们",
     },
-    copyright: "© {year} AllHouseClean. 保留所有权利。",
+    copyright: "© {year} AllHouseClean. All rights reserved.",
   },
   contactForm: {
     remainingSubmissions: "您还可以提交 {count} 次消息",
