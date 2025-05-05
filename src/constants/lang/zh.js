@@ -8,8 +8,8 @@ const zh = {
     testimonial: "评价",
   },
   hero: {
-    title: "简单的清洁生活",
-    subtitle: "— 从全屋清洁开始",
+    title: "舒爽清洁",
+    subtitle: "— 从家洁生活服务开始",
     contact: {
       title: "联系我们",
       phone: "(780) 669-4879 (message-only)",
