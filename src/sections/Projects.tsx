@@ -28,11 +28,7 @@ const ProjectCard = React.memo(
     }, []);
 
     return (
-      <div
-        id={id}
-        className="sticky top-40"
-        style={{ top: `${100 + index * 40}px` }}
-      >
+      <div id={id} className="sticky" style={{ top: `${100 + index * 40}px` }}>
         <Card
           key={project.title}
           className="projects pt-8 px-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20"
@@ -114,13 +110,13 @@ export const ProjectsSection = () => {
 
   return (
     <>
-      <section className="container scroll-pb-16 lg:py-24 py-16">
+      <section className="container scroll-mt-16 lg:py-24 py-16 relative">
         <SectionHeader
           title="成功案例"
           eyebrow="我们的工作"
           description="展示我们专业的清洁服务成果"
         />
-        <div className="flex flex-col mt-10 md:mt-20 gap-20 min-h-[300vh]">
+        <div className="flex flex-col mt-10 md:mt-20 gap-20 min-h-[300vh] relative">
           {portfolioProjects.map((project, index) => (
             <ProjectCard
               key={project.title}

@@ -12,8 +12,8 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Created with the help of Frontend Tribe",
+  title: "AllHouseClean",
+  description: "Cleaning Service provider in Edmonton",
 };
 
 export default function RootLayout({
@@ -71,7 +71,7 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-white text-primary antialiased font-sans w-screen overflow-x-hidden"
+          "bg-white text-primary antialiased font-sans"
         )}
       >
         <LanguageProvider>{children}</LanguageProvider>

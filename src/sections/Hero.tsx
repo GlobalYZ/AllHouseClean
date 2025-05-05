@@ -74,7 +74,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
   };
 
   const contactBlock = (
-    <div className="relative rounded-lg bg-white p-12 md:p-12 lg:p-16 shadow-md">
+    <div className="relative rounded-lg bg-white mx-8 p-8 md:p-12 lg:p-16 shadow-md">
       <div className="absolute top-0 left-0 w-8 h-8 bg-green-500 rounded-full -ml-4 -mt-4"></div>
       <div className="absolute bottom-0 right-0 w-8 h-8 bg-green-500 rounded-full -mr-4 -mb-4"></div>
       <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 my-4 text-center">
@@ -111,7 +111,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
     <>
       <div className="relative">
         <section
-          className={`relative h-[100vh] w-full flex justify-center items-center overflow-hidden bg-white`}
+          className={`relative h-[100vh] w-full flex justify-center items-center overflow-visible bg-white`}
         >
           <Image
             className="z-0 w-full h-full object-cover"
@@ -122,7 +122,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
             priority
           />
 
-          <div className="flex flex-col md:flex-row gap-16 md:gap-36 md:justify-center h-full pt-32 md:pt-48 lg:pt-60 px-10 box-border relative z-5">
+          <div className="flex flex-col md:flex-row gap-16 md:gap-36 md:justify-center h-full pt-32 md:pt-48 lg:pt-60 box-border relative z-5">
             <div className="relative group py-6 sm:py-6 w-full max-w-[480px] min-w-[320px] h-44 md:h-52">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/20 py-6 to-primary/30 backdrop-blur-xl rounded-xl md:scale-105 shadow-2xl"></div>
               <div className="relative p-8 md:p-10 rounded-3xl py-6 text-primary font-semibold h-full flex flex-col justify-center">

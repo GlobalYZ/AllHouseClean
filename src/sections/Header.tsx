@@ -111,7 +111,7 @@ export const Header = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="fixed z-10 w-screen flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
+    <div className="fixed z-10 w-full flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
       <div className="flex items-center md:gap-8">
         <div className="w-10 md:w-28 md:h-10 text-primary">
           <Logo />

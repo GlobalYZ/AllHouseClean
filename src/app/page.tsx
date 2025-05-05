@@ -4,6 +4,7 @@ import { HeroSection } from "@/sections/Hero";
 import dynamic from "next/dynamic";
 import { Loader } from "@/components/loader";
 import { useState, useEffect } from "react";
+import { DescriptionSection } from "@/sections/Description";
 // Lazy load sections that are below the fold
 const Services = dynamic(() =>
   import("@/sections/Services").then((mod) => mod.Services)
@@ -14,6 +15,10 @@ const ProjectsSection = dynamic(() =>
 
 const CheckList = dynamic(() =>
   import("@/sections/CheckList").then((mod) => mod.CheckList)
+);
+
+const WhyUs = dynamic(() =>
+  import("@/sections/WhyUs").then((mod) => mod.WhyUsSection)
 );
 
 const TestimonialsSection = dynamic(() =>
@@ -39,15 +44,19 @@ export default function Home() {
   };
 
   return (
-    <div className="w-screen overflow-x-hidden">
+    <div className="w-full relative">
       <Header />
-      <HeroSection onLoadComplete={handleHeroLoadComplete} />
-      {!heroLoaded && <Loader />}
-      <Services />
-      <CheckList />
-      <ProjectsSection />
-      <TestimonialsSection />
-      <Footer />
+      <main className="relative">
+        <HeroSection onLoadComplete={handleHeroLoadComplete} />
+        {!heroLoaded && <Loader />}
+        <DescriptionSection />
+        <Services />
+        <CheckList />
+        <ProjectsSection />
+        <WhyUs />
+        <TestimonialsSection />
+        <Footer />
+      </main>
     </div>
   );
 }
