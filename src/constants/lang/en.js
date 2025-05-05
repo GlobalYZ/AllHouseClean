@@ -1,96 +1,242 @@
 const en = {
-  home: "Home",
+  nav: {
+    description: "Description",
+    checklist: "Checklist",
+    projects: "Projects",
+    testimonial: "Testimonials",
+  },
+  description: "Description",
+  services: "Services",
+  checklist: "Checklist",
   projects: "Projects",
   testimonials: "Testimonials",
-  about: "About",
   hero: {
-    title: "Building Exceptional User Experiences",
-    description:
-      "Specializing in React, React Native, Next.js, Node.js, Javascript, and TypeScript",
-    buttonOne: "Explore my work",
-    buttonTwo: "Connect with me",
-    availability: "Available for new opportunities",
-  },
-  projectItems: {
-    top: "Portfolio Gallery",
-    title: "Featured Projects",
-    description: "See how I created engaging digital experiences",
-    ProjectOne: {
-      company: "Personal Project",
-      title: "Miya's Portfolio",
-      results:
-        "Enhanced user experience by integrating responsive development techniques and smooth animations。Implemented text localization feature for better accessibility。Used Technologies: React, Next.js, Tailwind CSS, TypeScript, Framer Motion。",
-    },
-    ProjectTwo: {
-      company: "BCIT ISSP Project",
-      title: "SNEWS",
-      results:
-        "Led the development of a real-time notification system with FCM token management。Integrated FCM into the React Native application with support for offline message storage。 Technologies: React Native, Node.js, Firebase, SQLite, REST API, Android Studio。",
-    },
-    ProjectThree: {
-      company: "BCIT Student Project",
-      title: "Vacapal",
-      results:
-        "a travel web app with itinerary generation and chat rooms feature。Integrated the OpenAI API to generate tailored itineraries and perform sentiment analysis, enabling automatic emoji generation for chat messages。Technologies: Node.js, Express, MongoDB, OpenAI API, Socket.io, Docker。",
-    },
-    ProjectFour: {
-      company: "BCIT Student Project",
-      title: "TaleMaker",
-      results:
-        "A story generation app powered by a large language model (LLM)。Deployed a large language model (LLM) on a locally configured server, exposed through Ngrok with an HTTPS URL。Technologies: Dotnet, Flask(Python), React Native, SQLite, REST API, Ngrok。",
+    title: "Clean living made simple",
+    subtitle: "— starting with All House Clean",
+    contact: {
+      title: "Connect with us",
+      phone: "(780) 669-4879",
+      email: "edmonton@maidpro.com",
+      address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
+      button: "Contact Us",
     },
   },
-  tape: "Performant, Accessibile, Interactive, Scalable, User Friendly, Maintainable, Secure",
+  description: {
+    paragraphs: [
+      "As a comprehensive residential cleaning service company based in Edmonton, we are dedicated to helping every customer who needs us. Our patient and meticulous customer service, reliable and standardized processes, and our commitment to cleaning results with no fear of rework have allowed us to go further with good reputation.",
+      "Trust us with your cleaning tasks, and we will use professional techniques and tools to ensure every corner of your home receives full attention, returning to you a clean home.",
+      "We thank every customer who has supported us long-term, introduced new friends to us, and encouraged us with heartwarming reviews. We always believe that quality and reputation are the most long-lasting, and we are confident in becoming your most trustworthy choice.",
+    ],
+  },
+  services: {
+    header: {
+      eyebrow: "Our Services",
+      title: "Services",
+      description:
+        "Home Clean Life provides professional cleaning services to ensure your living environment is clean and comfortable",
+    },
+    items: [
+      {
+        title: "Professional Cleaning",
+        description:
+          "Expert cleaning services for your home or office, ensuring a spotless environment.",
+      },
+      {
+        title: "Deep Cleaning",
+        description:
+          "Thorough cleaning of every corner, including hard-to-reach areas and detailed attention.",
+      },
+      {
+        title: "Regular Maintenance",
+        description:
+          "Scheduled cleaning services to maintain your space in perfect condition.",
+      },
+    ],
+  },
+  checklist: {
+    header: {
+      eyebrow: "Our Services",
+      title: "Duty Checklist",
+      description:
+        "We provide professional cleaning services to ensure your living environment is clean and comfortable",
+    },
+    cleaningTypes: {
+      daily: "Daily Cleaning",
+      deep: "Deep Cleaning",
+    },
+    rooms: {
+      bathroom: {
+        title: "Bathroom",
+        dailyTasks: [
+          "Clean toilet and seat",
+          "Wipe bathtub/shower",
+          "Clean sink and mirrors",
+          "Mop and disinfect",
+          "Replace towels",
+          "Refill soap and tissues",
+        ],
+        deepTasks: [
+          "Clean toilet and seat",
+          "Wipe bathtub/shower",
+          "Clean sink and mirrors",
+          "Mop and disinfect",
+          "Replace towels",
+          "Refill soap and tissues",
+          "Deep clean tile grout ⭐",
+        ],
+      },
+      kitchen: {
+        title: "Kitchen",
+        dailyTasks: [
+          "Clean stove and range hood",
+          "Wipe all countertops",
+          "Clean microwave inside and out",
+          "Organize refrigerator",
+          "Mop and disinfect",
+          "Clean sink",
+        ],
+        deepTasks: [
+          "Clean stove and range hood",
+          "Wipe all countertops",
+          "Clean microwave inside and out",
+          "Organize refrigerator",
+          "Mop and disinfect",
+          "Clean sink",
+          "Deep clean range hood filter ⭐",
+        ],
+      },
+      living: {
+        title: "Living Room",
+        dailyTasks: [
+          "Vacuum and mop",
+          "Dust furniture surfaces",
+          "Arrange sofa cushions",
+          "Clean TV and electronics",
+          "Clean windows",
+          "Organize items",
+        ],
+        deepTasks: [
+          "Vacuum and mop",
+          "Dust furniture surfaces",
+          "Arrange sofa cushions",
+          "Clean TV and electronics",
+          "Clean windows",
+          "Organize items",
+          "Deep clean sofa and carpets ⭐",
+        ],
+      },
+      bedroom: {
+        title: "Bedroom",
+        dailyTasks: [
+          "Change sheets and pillowcases",
+          "Vacuum and mop",
+          "Organize closet",
+          "Dust furniture surfaces",
+          "Clean windows",
+          "Organize bedside table",
+        ],
+        deepTasks: [
+          "Change sheets and pillowcases",
+          "Vacuum and mop",
+          "Organize closet",
+          "Dust furniture surfaces",
+          "Clean windows",
+          "Organize bedside table",
+          "Deep clean mattress for mites ⭐",
+        ],
+      },
+    },
+  },
+  projects: {
+    header: {
+      eyebrow: "Our Work",
+      title: "Success Cases",
+      description: "Showcasing our professional cleaning service results",
+    },
+    items: [
+      {
+        title: "Southwest House",
+        date: "May 2, 2025",
+        link: "#",
+        before: "Stubborn floor stains, heavy kitchen grease, bathroom odors",
+        after: "Floor renewed, kitchen pristine, bathroom fresh and odor-free",
+      },
+      {
+        title: "Downtown Apartment",
+        date: "April 15, 2025",
+        link: "#",
+        before: "Heavy window dust, carpet stains, visible bathroom scale",
+        after: "Windows sparkling, carpet spotless, bathroom renewed",
+      },
+      {
+        title: "East District Villa",
+        date: "March 28, 2025",
+        link: "#",
+        before: "Overgrown yard, dusty interior, heavy kitchen grease",
+        after: "Yard neat and tidy, interior dust-free, kitchen pristine",
+      },
+    ],
+  },
   testimonial: {
-    top: "happy clients",
-    title: "what my clients say",
-    description: "See the client reviews about my work",
+    top: "Client Reviews",
+    title: "What Our Clients Say",
+    description:
+      "Hear from our satisfied customers about their experience with our cleaning services",
     clientOne: {
-      name: "Barry Pointon",
-      position: "Professor at Physics Department, BCIT",
-      text: `Muyang's expertise in mobile 
-development and her ability to integrate complex systems were vital to the project's success. She 
-worked well professionally and collaboratively, with a commitment toward quality and timely delivery. `,
+      name: "Sarah Thompson",
+      text: "I've been using their cleaning service for over a year now, and I couldn't be happier. Their attention to detail is remarkable, and they consistently exceed my expectations. The team is professional, trustworthy, and always goes the extra mile to ensure my home is spotless.",
     },
     clientTwo: {
-      name: "Warren Todd",
-      position: "CEO of Galapagos Technologies Incorporated",
-      text: `Muyang is a remarkable developer who possesses a combination of 
-technical proficiency and interpersonal skills. I am confident that she will be a valuable 
-asset to any organization.`,
+      name: "Michael Chen",
+      text: "As a busy professional, finding a reliable cleaning service was crucial for me. This team has been exceptional - they're punctual, thorough, and use eco-friendly products which I appreciate. The difference they've made in maintaining my home is incredible. Highly recommended!",
     },
   },
-  toolBox: {
-    title: "About Me",
-    top: "A Glimpse into my world",
-    description: "Learn more about who I am, what I do and what inspires me",
-    summary: {
-      title: "Summary",
+  whyUs: {
+    header: {
+      eyebrow: "Our Advantages",
+      title: "Why Choose Us",
+      description: "",
+    },
+    introduction:
+      "We are a cleaning team rooted in Edmonton, professionally serving local customers. We truly love the cleaning industry, continuously learning and growing, completing each service with the most sincere attitude. Whether it's daily cleaning, deep cleaning, or move-out cleaning, we take every task seriously and serve each customer with dedication.",
+    features: [
+      {
+        title: "Professional",
+        description:
+          "We have sufficient knowledge and techniques for different cleaning areas and materials.",
+      },
+      {
+        title: "Reliable",
+        description:
+          "We guarantee cleaning results with free rework for any substandard areas.",
+      },
+      {
+        title: "Safe",
+        description:
+          "Our cleaning tools and agents are sourced from Home Depot, efficient, reliable, and harmless to living beings.",
+      },
+    ],
+  },
+  footer: {
+    company: {
+      name: "AllHouseClean",
       description:
-        "Hi, my name is Miya. I recently graduated from BCIT with a diploma in Computer Systems Technology. I have three years of experience in JavaScript and web development, and I am also an experienced Junior Frontend Developer in the industry. Over the past years, I have built over 100 responsive web pages with great user experience, security, and accessibility.",
+        "Professional cleaning services for a comfortable and tidy home environment. We provide comprehensive home cleaning solutions.",
     },
-    skills: {
-      title: "Functional Skills",
-      description: "Core skill highlights",
-      webDevelopment: "Web Development",
-      mobileDevelopment: "Mobile Development",
-      RESTAPI: "REST API",
-      testing: "Testing",
-      seo: "On-Page SEO",
-      sql: "SQL Databases",
-      deployment: "CI/CD Deployment",
-      uxUI: "UX/UI Design",
+    contact: {
+      title: "Contact Us",
+      phone: "(780) 669-4879",
+      email: "edmonton@maidpro.com",
+      address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
     },
-    devtools: {
-      title: "Dev Toolbox",
-      description: "Tools and languages I use",
+    quickLinks: {
+      title: "Quick Links",
+      home: "Home",
+      about: "About Us",
+      services: "Services",
+      contact: "Contact",
     },
-  },
-  contact: {
-    title: "More Features Coming Soon",
-    description:
-      "This site is under development, more exciting features will launch soon.",
-    button: "Contact Me",
+    copyright: "© {year} AllHouseClean. All rights reserved.",
   },
 };
 

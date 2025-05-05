@@ -1,39 +1,76 @@
+"use client";
+
 import { SectionHeader } from "@/components/SectionHeader";
 import CleanHandsIcon from "@/assets/icons/clean-hands.svg";
 import DeepCleaningIcon from "@/assets/icons/dusting.svg";
 import RegularMaintenanceIcon from "@/assets/icons/dusting.svg";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { FC } from "react";
 
-const services = [
-  {
-    title: "Professional Cleaning",
-    description:
-      "Expert cleaning services for your home or office, ensuring a spotless environment.",
-    icon: CleanHandsIcon,
-    link: "#",
-  },
-  {
-    title: "Deep Cleaning",
-    description:
-      "Thorough cleaning of every corner, including hard-to-reach areas and detailed attention.",
-    icon: DeepCleaningIcon,
-    link: "#",
-  },
-  {
-    title: "Regular Maintenance",
-    description:
-      "Scheduled cleaning services to maintain your space in perfect condition.",
-    icon: RegularMaintenanceIcon,
-    link: "#",
-  },
-];
+interface ServiceItem {
+  title: string;
+  description: string;
+  icon: FC<{ className?: string }>;
+  link: string;
+}
 
-export const Services = () => {
+interface ServiceTranslation {
+  title: string;
+  description: string;
+}
+
+interface ServicesTranslations {
+  header: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  items: ServiceTranslation[];
+}
+
+export const Services: FC = () => {
+  const { t } = useLanguage();
+
+  const getTranslatedString = (path: string): string => {
+    const value = t(path);
+    return typeof value === "string" ? value : "";
+  };
+
+  const getTranslatedServiceItem = (index: number): ServiceTranslation => {
+    const title = getTranslatedString(`services.items.${index}.title`);
+    const description = getTranslatedString(
+      `services.items.${index}.description`
+    );
+
+    return {
+      title,
+      description,
+    };
+  };
+
+  const translations: ServicesTranslations = {
+    header: {
+      eyebrow: getTranslatedString("services.header.eyebrow"),
+      title: getTranslatedString("services.header.title"),
+      description: getTranslatedString("services.header.description"),
+    },
+    items: [0, 1, 2].map(getTranslatedServiceItem),
+  };
+
+  const icons = [CleanHandsIcon, DeepCleaningIcon, RegularMaintenanceIcon];
+
+  const services: ServiceItem[] = translations.items.map((item, index) => ({
+    ...item,
+    icon: icons[index],
+    link: "#",
+  }));
+
   return (
     <section className="py-16 px-4 container mx-auto">
       <SectionHeader
-        eyebrow="Our Services"
-        title="公司简介"
-        description="家洁生活服务提供专业的清洁服务，确保您的家居环境整洁舒适"
+        eyebrow={translations.header.eyebrow}
+        title={translations.header.title}
+        description={translations.header.description}
       />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         {services.map((service, index) => (

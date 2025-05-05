@@ -6,13 +6,25 @@ import zh from "@/constants/lang/zh";
 
 type Language = "en" | "zh";
 
+// Define specific types for our translation structure
+interface TranslationItem {
+  title: string;
+  description: string;
+}
+
+interface RoomData {
+  title: string;
+  dailyTasks: string[];
+  deepTasks: string[];
+}
+
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (path: string) => string;
+  t: (path: string) => string | string[];
 }
 
-const translations = {
+const translations: Record<Language, any> = {
   en,
   zh,
 };
@@ -24,12 +36,24 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("zh");
 
-  const t = (path: string): string => {
-    const result = path.split(".").reduce((obj, key) => {
-      return (obj as any)?.[key] || "";
-    }, translations[language]);
+  const t = (path: string): string | string[] => {
+    try {
+      const keys = path.split(".");
+      let result: any = translations[language];
 
-    return typeof result === "string" ? result : "";
+      for (const key of keys) {
+        result = result[key];
+        if (result === undefined) break;
+      }
+
+      if (Array.isArray(result) || typeof result === "string") {
+        return result;
+      }
+
+      return "";
+    } catch {
+      return "";
+    }
   };
 
   return (

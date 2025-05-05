@@ -7,14 +7,8 @@ import React from "react";
 import Image from "next/image";
 import placeholder1 from "@/assets/images/light-saas-landing-page.png";
 import placeholder2 from "@/assets/images/dark-saas-landing-page.png";
-
-interface Project {
-  title: string;
-  date: string;
-  link: string;
-  before: string;
-  after: string;
-}
+import { useLanguage } from "@/contexts/LanguageContext";
+import type { Project } from "@/types/project";
 
 const ProjectCard = React.memo(
   ({ project, id, index }: { project: Project; id: string; index: number }) => {
@@ -53,7 +47,7 @@ const ProjectCard = React.memo(
               >
                 <Image
                   src={placeholder1}
-                  alt="清洁前"
+                  alt={project.before}
                   className="object-contain"
                   priority
                 />
@@ -67,7 +61,7 @@ const ProjectCard = React.memo(
               >
                 <Image
                   src={placeholder2}
-                  alt="清洁后"
+                  alt={project.after}
                   className="object-contain"
                   fill
                   priority
@@ -84,40 +78,55 @@ const ProjectCard = React.memo(
 ProjectCard.displayName = "ProjectCard";
 
 export const ProjectsSection = () => {
-  const portfolioProjects = [
-    {
-      title: "西南独立屋",
-      date: "2025年5月2日",
-      link: "#",
-      before: "地板有顽固污渍，厨房油渍严重，卫生间有异味",
-      after: "地板焕然一新，厨房洁净如新，卫生间清新无异味",
-    },
-    {
-      title: "市中心公寓",
-      date: "2025年4月15日",
-      link: "#",
-      before: "窗户积灰严重，地毯有污渍，浴室水垢明显",
-      after: "窗户明亮如新，地毯洁净无痕，浴室焕然一新",
-    },
-    {
-      title: "东区别墅",
-      date: "2025年3月28日",
-      link: "#",
-      before: "庭院杂草丛生，室内灰尘堆积，厨房油污严重",
-      after: "庭院整洁美观，室内一尘不染，厨房洁净如新",
-    },
-  ];
+  const { t } = useLanguage();
+  const getTranslatedString = (path: string): string => {
+    const value = t(path);
+    return typeof value === "string" ? value : "";
+  };
+
+  const projectsData = t("projects.items");
+  if (!Array.isArray(projectsData)) {
+    console.error("Projects items is not an array");
+    return null;
+  }
+
+  // Validate and transform the data
+  const projects = projectsData
+    .map((item) => {
+      if (
+        typeof item === "object" &&
+        item !== null &&
+        typeof (item as any).title === "string" &&
+        typeof (item as any).date === "string" &&
+        typeof (item as any).link === "string" &&
+        typeof (item as any).before === "string" &&
+        typeof (item as any).after === "string"
+      ) {
+        return item as Project;
+      }
+      console.error("Invalid project item:", item);
+      return null;
+    })
+    .filter((item): item is Project => item !== null);
+
+  if (projects.length === 0) {
+    console.error("No valid projects found");
+    return null;
+  }
 
   return (
     <>
-      <section className="container scroll-mt-16 lg:py-24 py-16 relative">
+      <section
+        id="projects-section"
+        className="container scroll-mt-16 lg:py-24 py-16 relative"
+      >
         <SectionHeader
-          title="成功案例"
-          eyebrow="我们的工作"
-          description="展示我们专业的清洁服务成果"
+          title={getTranslatedString("projects.header.title")}
+          eyebrow={getTranslatedString("projects.header.eyebrow")}
+          description={getTranslatedString("projects.header.description")}
         />
         <div className="flex flex-col mt-10 md:mt-20 gap-20 min-h-[300vh] relative">
-          {portfolioProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
               id={`project-${index}`}

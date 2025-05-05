@@ -1,117 +1,54 @@
+"use client";
+
 import { SectionHeader } from "@/components/SectionHeader";
 import Image from "next/image";
 import houseInside from "@/assets/images/house-inside_clipped.webp";
 import { Room } from "@/components/CheckList/Room";
 import { Modal } from "@/components/Modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type RoomType = "bathroom" | "kitchen" | "living" | "bedroom";
 type CleaningType = "daily" | "deep";
 
-interface RoomInfo {
-  title: string;
-  dailyTasks: string[];
-  deepTasks: string[];
-}
-
-const roomsInfo: Record<RoomType, RoomInfo> = {
-  bathroom: {
-    title: "卫生间",
-    dailyTasks: [
-      "清洁马桶和座圈",
-      "擦拭浴缸/淋浴间",
-      "清洁水槽和镜子",
-      "拖地和消毒",
-      "更换毛巾",
-      "补充洗手液和纸巾",
-    ],
-    deepTasks: [
-      "清洁马桶和座圈",
-      "擦拭浴缸/淋浴间",
-      "清洁水槽和镜子",
-      "拖地和消毒",
-      "更换毛巾",
-      "补充洗手液和纸巾",
-      "深度清洁瓷砖缝隙 ⭐",
-    ],
-  },
-  kitchen: {
-    title: "厨房",
-    dailyTasks: [
-      "清洁灶台和油烟机",
-      "擦拭所有台面",
-      "清洁微波炉内外",
-      "整理冰箱",
-      "拖地和消毒",
-      "清洗水槽",
-    ],
-    deepTasks: [
-      "清洁灶台和油烟机",
-      "擦拭所有台面",
-      "清洁微波炉内外",
-      "整理冰箱",
-      "拖地和消毒",
-      "清洗水槽",
-      "深度清洁油烟机滤网 ⭐",
-    ],
-  },
-  living: {
-    title: "客厅",
-    dailyTasks: [
-      "吸尘和拖地",
-      "擦拭家具表面",
-      "整理沙发垫",
-      "清洁电视和电器",
-      "擦拭窗户",
-      "整理杂物",
-    ],
-    deepTasks: [
-      "吸尘和拖地",
-      "擦拭家具表面",
-      "整理沙发垫",
-      "清洁电视和电器",
-      "擦拭窗户",
-      "整理杂物",
-      "深度清洗沙发和地毯 ⭐",
-    ],
-  },
-  bedroom: {
-    title: "卧室",
-    dailyTasks: [
-      "更换床单和枕套",
-      "吸尘和拖地",
-      "整理衣柜",
-      "擦拭家具表面",
-      "清洁窗户",
-      "整理床头柜",
-    ],
-    deepTasks: [
-      "更换床单和枕套",
-      "吸尘和拖地",
-      "整理衣柜",
-      "擦拭家具表面",
-      "清洁窗户",
-      "整理床头柜",
-      "深度清洁床垫除螨 ⭐",
-    ],
-  },
-};
-
 export const CheckList = () => {
+  const { t } = useLanguage();
   const [selectedRoom, setSelectedRoom] = useState<RoomType | null>(null);
   const [cleaningType, setCleaningType] = useState<CleaningType>("daily");
+  const [tasks, setTasks] = useState<string[]>([]);
 
   const handleRoomClick = (room: RoomType) => {
     setSelectedRoom(room);
   };
 
+  useEffect(() => {
+    if (selectedRoom) {
+      const tasksKey = `checklist.rooms.${selectedRoom}.${cleaningType}Tasks`;
+      const tasksList = t(tasksKey);
+
+      if (Array.isArray(tasksList)) {
+        setTasks(tasksList);
+      } else {
+        console.error("Tasks list is not an array:", tasksList);
+        setTasks([]);
+      }
+    } else {
+      setTasks([]);
+    }
+  }, [selectedRoom, cleaningType, t]);
+
+  const getTranslatedString = (path: string): string => {
+    const value = t(path);
+    return typeof value === "string" ? value : "";
+  };
+
   return (
-    <section className="bg-background">
+    <section id="checklist-section" className="bg-background">
       <div className="py-16 px-4 container mx-auto">
         <SectionHeader
-          eyebrow="我们的服务"
-          title="Duty Checklist"
-          description="我们提供专业的清洁服务，确保您的家居环境整洁舒适"
+          eyebrow={getTranslatedString("checklist.header.eyebrow")}
+          title={getTranslatedString("checklist.header.title")}
+          description={getTranslatedString("checklist.header.description")}
         />
         <div className="mt-4 md:mt-10 flex justify-center gap-4 mb-6 font-semibold">
           <button
@@ -122,7 +59,7 @@ export const CheckList = () => {
                 : "bg-gray-100 text-secondary-500"
             }`}
           >
-            日常清洁
+            {getTranslatedString("checklist.cleaningTypes.daily")}
           </button>
           <button
             onClick={() => setCleaningType("deep")}
@@ -132,7 +69,7 @@ export const CheckList = () => {
                 : "bg-gray-100 text-secondary-500"
             }`}
           >
-            深度清洁
+            {getTranslatedString("checklist.cleaningTypes.deep")}
           </button>
         </div>
         <div className="mt-4 flex justify-center">
@@ -172,17 +109,15 @@ export const CheckList = () => {
           onClose={() => setSelectedRoom(null)}
           title={
             selectedRoom
-              ? roomsInfo[selectedRoom].title +
-                (cleaningType === "daily" ? " - 日常清洁" : " - 深度清洁")
+              ? getTranslatedString(`checklist.rooms.${selectedRoom}.title`) +
+                " - " +
+                getTranslatedString(`checklist.cleaningTypes.${cleaningType}`)
               : ""
           }
         >
-          <ul className="space-y-2">
-            {selectedRoom &&
-              (cleaningType === "daily"
-                ? roomsInfo[selectedRoom].dailyTasks
-                : roomsInfo[selectedRoom].deepTasks
-              ).map((task, index) => (
+          {selectedRoom && tasks.length > 0 && (
+            <ul className="space-y-2">
+              {tasks.map((task, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <svg
                     className="w-5 h-5 text-secondary"
@@ -200,7 +135,8 @@ export const CheckList = () => {
                   <span>{task}</span>
                 </li>
               ))}
-          </ul>
+            </ul>
+          )}
         </Modal>
       </div>
     </section>

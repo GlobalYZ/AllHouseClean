@@ -13,12 +13,12 @@ export const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: t("testimonial.clientOne.name"),
-      text: t("testimonial.clientOne.text"),
+      name: String(t("testimonial.clientOne.name")),
+      text: String(t("testimonial.clientOne.text")),
     },
     {
-      name: t("testimonial.clientTwo.name"),
-      text: t("testimonial.clientTwo.text"),
+      name: String(t("testimonial.clientTwo.name")),
+      text: String(t("testimonial.clientTwo.text")),
     },
   ];
 
@@ -67,11 +67,11 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="container py-16">
+    <section id="testimonials-section" className="container py-16">
       <SectionHeader
-        title={t("testimonial.title")}
-        eyebrow={t("testimonial.top")}
-        description={t("testimonial.description")}
+        title={String(t("testimonial.title"))}
+        eyebrow={String(t("testimonial.top"))}
+        description={String(t("testimonial.description"))}
       />
       <div className="mt-12 lg:mt-20 relative max-w-2xl mx-auto px-4 md:px-16">
         <div

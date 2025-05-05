@@ -3,7 +3,7 @@
 import Image from "next/image";
 import backgroundImage from "@/assets/images/heroBg.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import PhoneIcon from "@/assets/icons/phone_calling.svg";
 import EmailIcon from "@/assets/icons/email.svg";
 import LocationIcon from "@/assets/icons/location.svg";
@@ -14,22 +14,50 @@ interface HeroSectionProps {
   onLoadComplete?: () => void;
 }
 
-export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
+interface ContactInfo {
+  title: string;
+  phone: string;
+  email: string;
+  address: string;
+  button: string;
+}
+
+interface HeroTranslations {
+  title: string;
+  subtitle: string;
+  contact: ContactInfo;
+}
+
+export const HeroSection: FC<HeroSectionProps> = ({ onLoadComplete }) => {
   const { t } = useLanguage();
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [clientHeight, setClientHeight] = useState(0);
 
+  const getTranslatedString = (path: string): string => {
+    const value = t(path);
+    return typeof value === "string" ? value : "";
+  };
+
+  const translations: HeroTranslations = {
+    title: getTranslatedString("hero.title"),
+    subtitle: getTranslatedString("hero.subtitle"),
+    contact: {
+      title: getTranslatedString("hero.contact.title"),
+      phone: getTranslatedString("hero.contact.phone"),
+      email: getTranslatedString("hero.contact.email"),
+      address: getTranslatedString("hero.contact.address"),
+      button: getTranslatedString("hero.contact.button"),
+    },
+  };
+
   useEffect(() => {
     const updateHeight = () => {
       setClientHeight(window.innerHeight);
     };
 
-    // 初始化设置
     updateHeight();
-
-    // 监听窗口大小变化
     window.addEventListener("resize", updateHeight);
 
     return () => {
@@ -48,7 +76,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
     return () => {
       window.removeEventListener("resize", checkScreenHeight);
     };
-  }, []);
+  }, [clientHeight]);
 
   useEffect(() => {
     if (imageLoaded && onLoadComplete) {
@@ -57,12 +85,14 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
   }, [imageLoaded, onLoadComplete]);
 
   const handleExploreWork = () => {
-    const top = document.getElementsByTagName("section")[1].offsetTop - 100;
-    console.log("explore work");
-    window.scrollTo({
-      top: top,
-      behavior: "smooth",
-    });
+    const sections = document.getElementsByTagName("section");
+    if (sections.length > 1) {
+      const top = sections[1].offsetTop - 100;
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
   };
 
   const handleContactClick = () => {
@@ -78,30 +108,37 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
       <div className="absolute top-0 left-0 w-8 h-8 bg-green-500 rounded-full -ml-4 -mt-4"></div>
       <div className="absolute bottom-0 right-0 w-8 h-8 bg-green-500 rounded-full -mr-4 -mb-4"></div>
       <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 my-4 text-center">
-        Connect with us
+        {translations.contact.title}
       </h2>
       <div className="my-6 lg:my-12">
         <div className="contact-item lg:text-lg">
           <PhoneIcon className="w-5 h-5" />
-          <a href="tel:(780) 669-4879">(780) 669-4879</a>
+          <a href={`tel:${translations.contact.phone}`}>
+            {translations.contact.phone}
+          </a>
         </div>
         <div className="contact-item lg:text-lg">
           <EmailIcon className="w-5 h-5" />
-          <a href="mailto:edmonton@maidpro.com">edmonton@maidpro.com</a>
+          <a href={`mailto:${translations.contact.email}`}>
+            {translations.contact.email}
+          </a>
         </div>
         <div className="contact-item mb-6 lg:text-lg">
           <LocationIcon className="w-5 h-5" />
           <address>
-            18012 105 Ave NW #101
-            <br />
-            Edmonton, AB T5S 2P1
+            {translations.contact.address.split("\n").map((line, index) => (
+              <span key={index}>
+                {line}
+                {index === 0 && <br />}
+              </span>
+            ))}
           </address>
         </div>
       </div>
 
       <div className="flex justify-center my-4">
         <button className="btn-secondary" onClick={handleContactClick}>
-          Contact Us
+          {translations.contact.button}
         </button>
       </div>
     </div>
@@ -110,9 +147,7 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
   return (
     <>
       <div className="relative">
-        <section
-          className={`relative h-[100vh] w-full flex justify-center items-center overflow-visible bg-white`}
-        >
+        <section className="relative h-[100vh] w-full flex justify-center items-center overflow-visible bg-white">
           <Image
             className="z-0 w-full h-full object-cover"
             src={backgroundImage}
@@ -127,10 +162,10 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/20 py-6 to-primary/30 backdrop-blur-xl rounded-xl md:scale-105 shadow-2xl"></div>
               <div className="relative p-8 md:p-10 rounded-3xl py-6 text-primary font-semibold h-full flex flex-col justify-center">
                 <p className="text-3xl md:text-4xl mb-3 tracking-tight leading-tight">
-                  Clean living made simple
+                  {translations.title}
                 </p>
                 <p className="text-xl md:text-xl italic font-light">
-                  — starting with All House Clean
+                  {translations.subtitle}
                 </p>
               </div>
             </div>
@@ -138,7 +173,11 @@ export const HeroSection = ({ onLoadComplete }: HeroSectionProps) => {
           </div>
         </section>
       </div>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} title="Contact Us">
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title={translations.contact.button}
+      >
         <ContactForm />
       </Modal>
     </>

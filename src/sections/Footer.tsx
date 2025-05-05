@@ -1,3 +1,5 @@
+"use client";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import Link from "next/link";
 import PhoneIcon from "@/assets/icons/phone_calling.svg";
@@ -7,31 +9,38 @@ import LocationIcon from "@/assets/icons/location.svg";
 export const Footer = () => {
   const { t } = useLanguage();
 
+  const getTranslatedString = (path: string): string => {
+    const value = t(path);
+    return typeof value === "string" ? value : "";
+  };
+
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 px-6">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-6">
-              AllHouseClean
+            <h3 className="text-lg font-bold text-gray-900 mb-5">
+              {getTranslatedString("footer.company.name")}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              专业的清洁服务，让您的家居环境整洁舒适。我们提供全方位的家居清洁解决方案。
+              {getTranslatedString("footer.company.description")}
             </p>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-6">联系我们</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              {getTranslatedString("footer.contact.title")}
+            </h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <PhoneIcon className="w-5 h-5 text-gray-400" />
                 <a
-                  href="tel:(780) 669-4879"
+                  href={`tel:${getTranslatedString("footer.contact.phone")}`}
                   className="text-gray-600 text-sm hover:text-primary-600 transition-colors"
                 >
-                  (780) 669-4879
+                  {getTranslatedString("footer.contact.phone")}
                 </a>
               </div>
               <div className="flex items-center gap-4">
@@ -39,18 +48,23 @@ export const Footer = () => {
                   <EmailIcon className="w-4 h-4 text-gray-400" />
                 </div>
                 <a
-                  href="mailto:edmonton@maidpro.com"
+                  href={`mailto:${getTranslatedString("footer.contact.email")}`}
                   className="text-gray-600 text-sm hover:text-primary-600 transition-colors"
                 >
-                  edmonton@maidpro.com
+                  {getTranslatedString("footer.contact.email")}
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <LocationIcon className="w-5 h-5 text-gray-400 mt-0.5" />
                 <address className="text-gray-600 text-sm not-italic">
-                  18012 105 Ave NW #101
-                  <br />
-                  Edmonton, AB T5S 2P1
+                  {getTranslatedString("footer.contact.address")
+                    .split("\n")
+                    .map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        {i === 0 && <br />}
+                      </span>
+                    ))}
                 </address>
               </div>
             </div>
@@ -58,31 +72,33 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-6">快速链接</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-6">
+              {getTranslatedString("footer.quickLinks.title")}
+            </h3>
             <nav className="space-y-3">
               <Link
                 href="#home"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
               >
-                首页
+                {getTranslatedString("footer.quickLinks.home")}
               </Link>
               <Link
                 href="#about"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
               >
-                关于我们
+                {getTranslatedString("footer.quickLinks.about")}
               </Link>
               <Link
                 href="#services"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
               >
-                服务项目
+                {getTranslatedString("footer.quickLinks.services")}
               </Link>
               <Link
                 href="#contact"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
               >
-                联系我们
+                {getTranslatedString("footer.quickLinks.contact")}
               </Link>
             </nav>
           </div>
@@ -91,8 +107,10 @@ export const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-200 py-8 px-6">
           <p className="text-center text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} AllHouseClean. All rights
-            reserved.
+            {getTranslatedString("footer.copyright").replace(
+              "{year}",
+              new Date().getFullYear().toString()
+            )}
           </p>
         </div>
       </div>

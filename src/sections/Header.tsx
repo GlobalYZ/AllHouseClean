@@ -17,13 +17,20 @@ const Nav = ({
 }) => {
   const { t } = useLanguage();
 
-  const handleScrollToSection = (index: number) => {
-    const section = document.getElementsByTagName("section")[index];
-    const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({
-      top: sectionTop - 120,
-      behavior: "smooth",
-    });
+  const getTranslatedString = (path: string): string => {
+    const value = t(path);
+    return typeof value === "string" ? value : "";
+  };
+
+  const handleScrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: sectionTop - 80,
+        behavior: "smooth",
+      });
+    }
     onClose();
   };
 
@@ -43,34 +50,34 @@ const Nav = ({
             ? `fixed top-20 right-0 w-48 h-screen bg-background flex flex-col items-center gap-1 transition-transform duration-300 ${
                 isOpen ? "translate-x-0" : "translate-x-full"
               }`
-            : "hidden md:flex static w-auto h-auto bg-transparent flex-row items-center gap-4"
+            : "flex static w-auto h-auto bg-transparent flex-row items-center gap-4"
         }`}
       >
         <a
-          href="#home"
+          href="#description"
           className={`nav-item text-nowrap ${
             isMobile ? "w-full text-center p-4" : "w-auto text-left p-0"
           }`}
           onClick={(e) => {
             e.preventDefault();
-            handleScrollToSection(0);
-            window.history.pushState(null, "", "#home");
+            handleScrollToSection("description-section");
+            window.history.pushState(null, "", "#description");
           }}
         >
-          {t("home")}
+          {getTranslatedString("nav.description")}
         </a>
         <a
-          href="#services"
+          href="#checklist"
           className={`nav-item text-nowrap ${
             isMobile ? "w-full text-center p-4" : "w-auto text-left p-0"
           }`}
           onClick={(e) => {
             e.preventDefault();
-            handleScrollToSection(1);
-            window.history.pushState(null, "", "#services");
+            handleScrollToSection("checklist-section");
+            window.history.pushState(null, "", "#checklist");
           }}
         >
-          {t("services")}
+          {getTranslatedString("nav.checklist")}
         </a>
         <a
           href="#projects"
@@ -79,11 +86,11 @@ const Nav = ({
           }`}
           onClick={(e) => {
             e.preventDefault();
-            handleScrollToSection(3);
+            handleScrollToSection("projects-section");
             window.history.pushState(null, "", "#projects");
           }}
         >
-          {t("projects")}
+          {getTranslatedString("nav.projects")}
         </a>
         <a
           href="#testimonials"
@@ -92,11 +99,11 @@ const Nav = ({
           }`}
           onClick={(e) => {
             e.preventDefault();
-            handleScrollToSection(4);
+            handleScrollToSection("testimonials-section");
             window.history.pushState(null, "", "#testimonials");
           }}
         >
-          {t("testimonials")}
+          {getTranslatedString("nav.testimonial")}
         </a>
         <div className="flex justify-center md:hidden">
           <LanguageSwitch />
@@ -111,8 +118,8 @@ export const Header = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="fixed z-10 w-full flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
-      <div className="flex items-center md:gap-8">
+    <header className="fixed z-10 w-screen flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
+      <div className="flex items-center gap-8">
         <div className="w-10 md:w-28 md:h-10 text-primary">
           <Logo />
         </div>
@@ -150,6 +157,6 @@ export const Header = () => {
       ) : (
         <LanguageSwitch />
       )}
-    </div>
+    </header>
   );
 };
