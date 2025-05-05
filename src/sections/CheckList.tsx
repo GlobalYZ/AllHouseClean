@@ -116,19 +116,19 @@ export const CheckList = () => {
         <div className="mt-4 md:mt-10 flex justify-center gap-4 mb-6 font-semibold">
           <button
             onClick={() => setCleaningType("daily")}
-            className={`px-4 py-1.5 text-sm rounded-full border-2 border-secondary transition-colors ${
+            className={`px-4 py-1.5 text-sm rounded-full border-2 border-secondary transition-all duration-300 ${
               cleaningType === "daily"
-                ? "bg-secondary text-white"
-                : "bg-gray-100 text-secondary-600"
+                ? "bg-secondary text-white scale-110"
+                : "bg-gray-100 text-secondary-500"
             }`}
           >
             日常清洁
           </button>
           <button
             onClick={() => setCleaningType("deep")}
-            className={`px-4 py-1.5 text-sm rounded-full border-2 border-secondary transition-colors ${
+            className={`px-4 py-1.5 text-sm rounded-full border-2 border-secondary transition-all duration-300 ${
               cleaningType === "deep"
-                ? "bg-secondary text-white"
+                ? "bg-secondary text-white scale-110"
                 : "bg-gray-100 text-secondary-500"
             }`}
           >
@@ -170,7 +170,12 @@ export const CheckList = () => {
         <Modal
           isOpen={selectedRoom !== null}
           onClose={() => setSelectedRoom(null)}
-          title={selectedRoom ? roomsInfo[selectedRoom].title : ""}
+          title={
+            selectedRoom
+              ? roomsInfo[selectedRoom].title +
+                (cleaningType === "daily" ? " - 日常清洁" : " - 深度清洁")
+              : ""
+          }
         >
           <ul className="space-y-2">
             {selectedRoom &&
