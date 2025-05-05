@@ -39,14 +39,10 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="w-screen overflow-x-hidden">
       <Header />
       <HeroSection onLoadComplete={handleHeroLoadComplete} />
-      {!heroLoaded && (
-        <div className="fixed inset-0 z-10 flex flex-col items-center justify-center bg-black h-screen">
-          <Loader />
-        </div>
-      )}
+      {!heroLoaded && <Loader />}
       <Services />
       <CheckList />
       <ProjectsSection />

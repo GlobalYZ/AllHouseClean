@@ -2,9 +2,10 @@
 
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/useIsMobile";
-
+import Image from "next/image";
+import Logo from "@/assets/icons/Logo.svg";
 const Nav = ({
   isOpen,
   onClose,
@@ -59,13 +60,26 @@ const Nav = ({
           {t("home")}
         </a>
         <a
-          href="#projects"
+          href="#services"
           className={`nav-item text-nowrap ${
             isMobile ? "w-full text-center p-4" : "w-auto text-left p-0"
           }`}
           onClick={(e) => {
             e.preventDefault();
             handleScrollToSection(1);
+            window.history.pushState(null, "", "#services");
+          }}
+        >
+          {t("services")}
+        </a>
+        <a
+          href="#projects"
+          className={`nav-item text-nowrap ${
+            isMobile ? "w-full text-center p-4" : "w-auto text-left p-0"
+          }`}
+          onClick={(e) => {
+            e.preventDefault();
+            handleScrollToSection(3);
             window.history.pushState(null, "", "#projects");
           }}
         >
@@ -78,24 +92,11 @@ const Nav = ({
           }`}
           onClick={(e) => {
             e.preventDefault();
-            handleScrollToSection(2);
+            handleScrollToSection(4);
             window.history.pushState(null, "", "#testimonials");
           }}
         >
           {t("testimonials")}
-        </a>
-        <a
-          href="#contact"
-          className={`nav-item text-nowrap ${
-            isMobile ? "w-full text-center p-4" : "w-auto text-left p-0"
-          }`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleScrollToSection(3);
-            window.history.pushState(null, "", "#contact");
-          }}
-        >
-          {t("about")}
         </a>
         <div className="flex justify-center md:hidden">
           <LanguageSwitch />
@@ -110,9 +111,12 @@ export const Header = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="fixed z-10 w-full flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
-      <div className="flex items-center gap-8">
-        <p className="text-2xl font-bold text-primary-600">logo placeholder</p>
+    <div className="fixed z-10 w-screen flex h-20 px-4 lg:px-6 justify-between items-center bg-background shadow-md">
+      <div className="flex items-center md:gap-8">
+        <div className="w-10 md:w-28 md:h-10 text-primary">
+          <Logo />
+        </div>
+
         <Nav
           isOpen={isMenuOpen}
           onClose={() => setIsMenuOpen(false)}
