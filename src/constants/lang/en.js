@@ -16,7 +16,7 @@ const en = {
     contact: {
       title: "Connect with us",
       phone: "(780) 669-4879 (message-only)",
-      email: "edmonton@maidpro.com",
+      email: "service@allhouseclean.ca",
       address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
       button: "Contact Us",
     },
@@ -237,6 +237,19 @@ const en = {
       contact: "Contact",
     },
     copyright: "© {year} AllHouseClean. All rights reserved.",
+  },
+  contactForm: {
+    remainingSubmissions: "You can submit {count} more messages",
+    name: "Name *",
+    email: "Email *",
+    message: "Message *",
+    sending: "sending...",
+    send: "send message",
+    success: "message sent! We will contact you within 24 hours.",
+    error: "Failed to send message. Please try again later.",
+    rateLimit:
+      "Submission limit reached. Please try again in {minutes} minutes",
+    serverError: "Server returned an invalid response, please try again later",
   },
 };
 

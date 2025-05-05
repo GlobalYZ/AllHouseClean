@@ -13,7 +13,7 @@ const zh = {
     contact: {
       title: "联系我们",
       phone: "(780) 669-4879",
-      email: "edmonton@maidpro.com",
+      email: "service@allhouseclean.ca",
       address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
       button: "联系我们",
     },
@@ -225,6 +225,18 @@ const zh = {
       contact: "联系我们",
     },
     copyright: "© {year} AllHouseClean. 保留所有权利。",
+  },
+  contactForm: {
+    remainingSubmissions: "您还可以提交 {count} 次消息",
+    name: "姓名 *",
+    email: "邮箱 *",
+    message: "消息内容 *",
+    sending: "发送中...",
+    send: "发送消息",
+    success: "消息已发送！我们将在24小时内与您联系。",
+    error: "发送消息失败，请稍后重试。",
+    rateLimit: "提交次数已达上限，请在 {minutes} 分钟后再试",
+    serverError: "服务器返回了无效的响应，请稍后再试",
   },
 };
 

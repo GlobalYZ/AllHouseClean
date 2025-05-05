@@ -31,19 +31,19 @@ export default function RootLayout({
         />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
-        <title>Miya&apos;s Portfolio</title>
+        <title>AllHouseClean</title>
         <meta
           name="description"
-          content="Miya is a software developer specializing in Web | Mobile | Front End Development"
+          content="A cleaning service provider in Edmonton"
         />
-        <meta name="keywords" content="Web | Mobile | Front End Development" />
-        <meta name="author" content="Miya (Muyang) Li" />
+        <meta name="keywords" content="cleaning service, Edmonton" />
+        <meta name="author" content="AllHouseClean" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Miya's Portfolio" />
+        <meta property="og:title" content="AllHouseClean" />
         <meta
           property="og:description"
-          content="Miya is a software developer specializing in Web | Mobile | Front End Development"
+          content="A cleaning service provider in Edmonton"
         />
         {/* <meta
           property="og:image"
@@ -62,8 +62,8 @@ export default function RootLayout({
           content="https://yourwebsite.com/twitter-image.jpg"
         /> */}
 
-        <link rel="icon" href="/logo.png" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" href="/LogoIcon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/LogoIcon.svg" />
 
         {/* <link rel="canonical" href="https://yourwebsite.com" /> */}
       </head>
