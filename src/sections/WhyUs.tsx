@@ -56,11 +56,11 @@ export const WhyUsSection = () => {
           {getTranslatedString("whyUs.introduction")}
         </p>
         {!isMobile && (
-          <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 md:gap-8 lg:gap-12 md:grid-cols-3">
             {features.map((feature) => (
               <Card
                 key={feature.title}
-                className="p-6 md:p-8 transition-transform duration-300 flex flex-col items-center text-center"
+                className="p-6 md:p-8 transition-transform duration-300 flex flex-col items-center text-center h-full"
               >
                 <div className="mb-6">
                   <CheckCircleIcon className="size-12 text-primary-600" />
@@ -68,9 +68,11 @@ export const WhyUsSection = () => {
                 <h3 className="text-2xl font-serif text-primary-600 mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-700 text-base leading-relaxed">
-                  {feature.description}
-                </p>
+                <div className="flex-1 flex items-center">
+                  <p className="text-gray-700 text-base leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </Card>
             ))}
           </div>

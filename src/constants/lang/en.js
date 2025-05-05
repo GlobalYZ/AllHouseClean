@@ -15,7 +15,7 @@ const en = {
     subtitle: "— starting with All House Clean",
     contact: {
       title: "Connect with us",
-      phone: "(780) 669-4879",
+      phone: "(780) 669-4879 (message-only)",
       email: "edmonton@maidpro.com",
       address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
       button: "Contact Us",
@@ -225,9 +225,9 @@ const en = {
     },
     contact: {
       title: "Contact Us",
-      phone: "(780) 669-4879",
-      email: "edmonton@maidpro.com",
-      address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
+      phone: "(780) 669-4879 (message-only)",
+      email: "service@allhouseclean.ca",
+      address: "40 - 3710 Allan Drive SW\nEdmonton, AB T6X 0B6",
     },
     quickLinks: {
       title: "Quick Links",

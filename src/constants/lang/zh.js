@@ -213,9 +213,9 @@ const zh = {
     },
     contact: {
       title: "联系我们",
-      phone: "(780) 669-4879",
-      email: "edmonton@maidpro.com",
-      address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
+      phone: "(780) 669-4879 (message-only)",
+      email: "service@allhouseclean.ca",
+      address: "40 - 3710 Allan Drive SW\nEdmonton, AB T6X 0B6",
     },
     quickLinks: {
       title: "快速链接",

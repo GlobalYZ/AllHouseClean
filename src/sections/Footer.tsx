@@ -77,28 +77,80 @@ export const Footer = () => {
             </h3>
             <nav className="space-y-3">
               <Link
-                href="#home"
+                href="#description"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.getElementById(
+                    "description-section"
+                  );
+                  if (section) {
+                    const sectionTop =
+                      section.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                      top: sectionTop - 80,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
               >
-                {getTranslatedString("footer.quickLinks.home")}
+                {getTranslatedString("nav.description")}
               </Link>
               <Link
-                href="#about"
+                href="#checklist"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.getElementById("checklist-section");
+                  if (section) {
+                    const sectionTop =
+                      section.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                      top: sectionTop - 80,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
               >
-                {getTranslatedString("footer.quickLinks.about")}
+                {getTranslatedString("nav.checklist")}
               </Link>
               <Link
-                href="#services"
+                href="#projects"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.getElementById("projects-section");
+                  if (section) {
+                    const sectionTop =
+                      section.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                      top: sectionTop - 80,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
               >
-                {getTranslatedString("footer.quickLinks.services")}
+                {getTranslatedString("nav.projects")}
               </Link>
               <Link
-                href="#contact"
+                href="#testimonials"
                 className="block text-gray-600 text-sm hover:text-primary-600 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.getElementById(
+                    "testimonials-section"
+                  );
+                  if (section) {
+                    const sectionTop =
+                      section.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                      top: sectionTop - 80,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
               >
-                {getTranslatedString("footer.quickLinks.contact")}
+                {getTranslatedString("nav.testimonial")}
               </Link>
             </nav>
           </div>
