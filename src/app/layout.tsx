@@ -45,22 +45,22 @@ export default function RootLayout({
           property="og:description"
           content="A cleaning service provider in Edmonton"
         />
-        {/* <meta
+        <meta
           property="og:image"
-          content="https://yourwebsite.com/og-image.jpg"
-        /> */}
-        {/* <meta property="og:url" content="https://yourwebsite.com" /> */}
+          content="https://allhouseclean.com/LogoIcon.svg"
+        />
+        <meta property="og:url" content="https://allhouseclean.com" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Miya's Portfolio" />
+        <meta name="twitter:title" content="AllHouseClean" />
         <meta
           name="twitter:description"
           content="A cleaning service provider in Edmonton"
         />
-        {/* <meta
+        <meta
           name="twitter:image"
-          content="https://yourwebsite.com/twitter-image.jpg"
-        /> */}
+          content="https://allhouseclean.com/LogoIcon.svg"
+        />
 
         <link rel="icon" href="/LogoIcon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/LogoIcon.svg" />
