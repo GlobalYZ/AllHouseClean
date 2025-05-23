@@ -44,18 +44,18 @@ export const CheckList = () => {
 
   return (
     <section id="checklist-section" className="bg-background">
-      <div className="py-16 px-4 container mx-auto">
+      <div className="container">
         <SectionHeader
           eyebrow={getTranslatedString("checklist.header.eyebrow")}
           title={getTranslatedString("checklist.header.title")}
           description={getTranslatedString("checklist.header.description")}
         />
-        <div className="mt-4 md:mt-10 flex justify-center gap-4 mb-6 font-semibold">
+        <div className="my-8 md:my-10 flex justify-center gap-6 font-semibold">
           <button
             onClick={() => setCleaningType("daily")}
-            className={`px-4 py-1.5 text-sm rounded-full border-2 border-secondary transition-all duration-300 ${
+            className={`px-4 py-1.5 text-sm rounded-lg border-2 border-secondary transition-all duration-300 ${
               cleaningType === "daily"
-                ? "bg-secondary text-white scale-110"
+                ? "gradient-secondary text-white scale-110"
                 : "bg-gray-100 text-secondary-500"
             }`}
           >
@@ -63,9 +63,9 @@ export const CheckList = () => {
           </button>
           <button
             onClick={() => setCleaningType("deep")}
-            className={`px-4 py-1.5 text-sm rounded-full border-2 border-secondary transition-all duration-300 ${
+            className={`px-4 py-1.5 text-sm rounded-lg border-2 border-secondary transition-all duration-300 ${
               cleaningType === "deep"
-                ? "bg-secondary text-white scale-110"
+                ? "gradient-secondary text-white scale-110"
                 : "bg-gray-100 text-secondary-500"
             }`}
           >
@@ -73,7 +73,7 @@ export const CheckList = () => {
           </button>
         </div>
         <div className="mt-4 flex justify-center">
-          <div className="relative w-full max-w-3xl aspect-[16/12]">
+          <div className="relative w-full aspect-[16/12]">
             <Image
               src={houseInside}
               alt="House Interior"

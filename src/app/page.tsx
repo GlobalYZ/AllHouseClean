@@ -9,9 +9,9 @@ import { DescriptionSection } from "@/sections/Description";
 const Services = dynamic(() =>
   import("@/sections/Services").then((mod) => mod.Services)
 );
-const ProjectsSection = dynamic(() =>
-  import("@/sections/Projects").then((mod) => mod.ProjectsSection)
-);
+// const ProjectsSection = dynamic(() =>
+//   import("@/sections/Projects").then((mod) => mod.ProjectsSection)
+// );
 
 const CheckList = dynamic(() =>
   import("@/sections/CheckList").then((mod) => mod.CheckList)
@@ -52,7 +52,7 @@ export default function Home() {
         <DescriptionSection />
         <Services />
         <CheckList />
-        <ProjectsSection />
+        {/* <ProjectsSection /> */}
         <WhyUs />
         <TestimonialsSection />
         <Footer />

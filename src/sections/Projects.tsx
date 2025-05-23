@@ -118,7 +118,7 @@ export const ProjectsSection = () => {
     <>
       <section
         id="projects-section"
-        className="container scroll-mt-16 lg:py-24 py-16 relative"
+        className="container scroll-mt-16 relative"
       >
         <SectionHeader
           title={getTranslatedString("projects.header.title")}

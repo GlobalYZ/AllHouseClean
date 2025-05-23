@@ -12,9 +12,9 @@ const zh = {
     subtitle: "— 从家洁生活服务开始",
     contact: {
       title: "联系我们",
-      phone: "(780) 669-4879 (message-only)",
+      phone: "(825) 889-6127 (message-only)",
       email: "service@allhouseclean.ca",
-      address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
+      address: "40 - 3710 Allan Drive SW\nEdmonton, AB T6X 0B6",
       button: "联系我们",
     },
   },
@@ -213,7 +213,7 @@ const zh = {
     },
     contact: {
       title: "联系我们",
-      phone: "(780) 669-4879 (message-only)",
+      phone: "(825) 889-6127 (message-only)",
       email: "service@allhouseclean.ca",
       address: "40 - 3710 Allan Drive SW\nEdmonton, AB T6X 0B6",
     },

@@ -67,13 +67,13 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials-section" className="container py-16">
+    <section id="testimonials-section" className="container">
       <SectionHeader
         title={String(t("testimonial.title"))}
         eyebrow={String(t("testimonial.top"))}
         description={String(t("testimonial.description"))}
       />
-      <div className="mt-12 lg:mt-20 relative max-w-2xl mx-auto px-4 md:px-16">
+      <div className="relative">
         <div
           className="overflow-hidden touch-pan-x"
           onTouchStart={handleTouchStart}

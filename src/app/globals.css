@@ -28,7 +28,7 @@
   }
 
   .gradient-secondary {
-    @apply bg-gradient-to-br from-secondary-500 to-secondary-600 border border-secondary-600;
+    @apply bg-gradient-to-br from-secondary-200 to-secondary-500 border border-secondary-600;
   }
 
   .gradient-bg {
@@ -87,7 +87,7 @@ html, body {
 
 @layer utilities {
   .container {
-    @apply lg:max-w-5xl;
+    @apply lg:max-w-5xl md:py-32 py-24 px-4 mx-auto;
   }
 
   .mask-layer {

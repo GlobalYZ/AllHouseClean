@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Calistoga } from "next/font/google";
+import { Inter, DM_Serif_Text } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { twMerge } from "tailwind-merge";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const calistoga = Calistoga({
+const dmSerifText = DM_Serif_Text({
   subsets: ["latin"],
   variable: "--font-serif",
   weight: ["400"],
@@ -55,7 +55,7 @@ export default function RootLayout({
         <meta name="twitter:title" content="Miya's Portfolio" />
         <meta
           name="twitter:description"
-          content="Miya is a software developer specializing in Web | Mobile | Front End Development"
+          content="A cleaning service provider in Edmonton"
         />
         {/* <meta
           name="twitter:image"
@@ -70,7 +70,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.variable,
-          calistoga.variable,
+          dmSerifText.variable,
           "bg-white text-primary antialiased font-sans"
         )}
       >

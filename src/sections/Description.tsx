@@ -17,7 +17,7 @@ export const DescriptionSection = () => {
   }
 
   return (
-    <section id="description-section" className="container py-8 md:py-16">
+    <section id="description-section" className="container">
       <div className="flex justify-center">
         <Logo className="size-16 md:size-36 text-primary-600" />
       </div>

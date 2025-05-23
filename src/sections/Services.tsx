@@ -66,29 +66,31 @@ export const Services: FC = () => {
   }));
 
   return (
-    <section className="py-16 px-4 container mx-auto">
+    <section className="container">
       <SectionHeader
         eyebrow={translations.header.eyebrow}
         title={translations.header.title}
         description={translations.header.description}
       />
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="mt-12 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-28">
         {services.map((service, index) => (
           <div
             key={index}
-            className="p-6 rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)] bg-white md:h-[300px] lg:h-[350px] flex flex-col items-center text-center"
+            className="p-6 min-h-[240px] rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.1)] bg-white md:h-[300px] lg:h-[350px] flex flex-col items-center text-center"
           >
-            <div className="mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-primary-50 to-primary-100 flex justify-center items-center">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-50 to-primary-100 flex justify-center items-center">
               <service.icon className="size-8" />
             </div>
-            <h3 className="font-semibold font-serif mb-2 gradient-text flex flex-col">
+            <h3 className="font-semibold font-serif text-2xl py-4 gradient-text flex flex-col">
               {service.title.split(" ").map((word, i) => (
                 <span key={i}>{word}</span>
               ))}
             </h3>
-            <p className="text-black text-sm flex-grow mt-3 leading-snug">
-              {service.description}
-            </p>
+            <div className="flex-grow mt-2 md:mt-4 lg:mt-8 md:max-w-48 px-4">
+              <p className="text-black text leading-snug">
+                {service.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
