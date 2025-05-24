@@ -4,7 +4,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import Image from "next/image";
 import Logo from "@/assets/icons/Logo.svg";
 const Nav = ({
   isOpen,
@@ -105,9 +104,9 @@ const Nav = ({
         >
           {getTranslatedString("nav.testimonial")}
         </a>
-        <div className="flex justify-center md:hidden">
+        {/* <div className="flex justify-center md:hidden">
           <LanguageSwitch />
-        </div>
+        </div> */}
       </nav>
     </>
   );
@@ -154,9 +153,11 @@ export const Header = () => {
             />
           </div>
         </button>
-      ) : (
-        <LanguageSwitch />
-      )}
+      ) : null
+      // : (
+      //   <LanguageSwitch />
+      // )
+      }
     </header>
   );
 };

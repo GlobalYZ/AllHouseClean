@@ -6,9 +6,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect, FC } from "react";
 import PhoneIcon from "@/assets/icons/phone_calling.svg";
 import EmailIcon from "@/assets/icons/email.svg";
-import LocationIcon from "@/assets/icons/location.svg";
+// import LocationIcon from "@/assets/icons/location.svg";
 import { Modal } from "@/components/Modal";
 import ContactForm from "@/components/ContactForm";
+import { SocialLinks } from "@/components/SocialLinks";
 
 interface HeroSectionProps {
   onLoadComplete?: () => void;
@@ -110,7 +111,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ onLoadComplete }) => {
       <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-800 my-4 text-center">
         {translations.contact.title}
       </h2>
-      <div className="my-6 lg:my-12">
+      <div className="flex flex-col my-4 gap-2 sm:my-6 sm:gap-8">
         <div className="contact-item lg:text-lg">
           <PhoneIcon className="w-5 h-5" />
           <a href={`tel:${translations.contact.phone}`}>
@@ -118,12 +119,14 @@ export const HeroSection: FC<HeroSectionProps> = ({ onLoadComplete }) => {
           </a>
         </div>
         <div className="contact-item lg:text-lg">
-          <EmailIcon className="w-5 h-5" />
+          <div className="w-5 h-5 flex flex-col justify-center items-center">
+            <EmailIcon className="w-4 h-4" />
+          </div>
           <a href={`mailto:${translations.contact.email}`}>
             {translations.contact.email}
           </a>
         </div>
-        <div className="contact-item mb-6 lg:text-lg">
+        {/* <div className="contact-item mb-6 lg:text-lg">
           <LocationIcon className="w-5 h-5" />
           <address>
             {translations.contact.address.split("\n").map((line, index) => (
@@ -133,14 +136,16 @@ export const HeroSection: FC<HeroSectionProps> = ({ onLoadComplete }) => {
               </span>
             ))}
           </address>
-        </div>
+        </div> */}
       </div>
 
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center my-12">
         <button className="btn-secondary" onClick={handleContactClick}>
           {translations.contact.button}
         </button>
       </div>
+          <SocialLinks />
+
     </div>
   );
 

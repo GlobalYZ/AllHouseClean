@@ -5,6 +5,7 @@ import Link from "next/link";
 import PhoneIcon from "@/assets/icons/phone_calling.svg";
 import EmailIcon from "@/assets/icons/email.svg";
 import LocationIcon from "@/assets/icons/location.svg";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
 
 export const Footer = () => {
   const { t } = useLanguage();
@@ -20,7 +21,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 px-6">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-5">
+            <h3 className="footer-title">
               {getTranslatedString("footer.company.name")}
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
@@ -30,7 +31,7 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-6">
+            <h3 className="footer-title">
               {getTranslatedString("footer.contact.title")}
             </h3>
             <div className="space-y-4">
@@ -54,7 +55,7 @@ export const Footer = () => {
                   {getTranslatedString("footer.contact.email")}
                 </a>
               </div>
-              <div className="flex items-start gap-3">
+              {/* <div className="flex items-start gap-3">
                 <LocationIcon className="w-5 h-5 text-gray-400 mt-0.5" />
                 <address className="text-gray-600 text-sm not-italic">
                   {getTranslatedString("footer.contact.address")
@@ -66,13 +67,13 @@ export const Footer = () => {
                       </span>
                     ))}
                 </address>
-              </div>
+              </div> */}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-6">
+            <h3 className="footer-title">
               {getTranslatedString("footer.quickLinks.title")}
             </h3>
             <nav className="space-y-3">
@@ -152,6 +153,7 @@ export const Footer = () => {
               >
                 {getTranslatedString("nav.testimonial")}
               </Link>
+              <LanguageSwitch />
             </nav>
           </div>
         </div>

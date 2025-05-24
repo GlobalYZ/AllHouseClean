@@ -16,11 +16,19 @@
   }
 
   .btn-secondary {
-    @apply inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-secondary-400 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
+    @apply uppercase inline-flex h-10 w-full rounded-lg font-semibold items-center justify-center gap-2 text-sm bg-secondary-400 text-white md:w-auto px-6 hover:scale-105 transition duration-300;
+  }
+
+  .btn-secondary-small {
+    @apply text-sm inline-flex h-6 w-full rounded-lg items-center justify-center gap-1 bg-secondary-400 text-white md:w-auto px-3 hover:scale-105 transition duration-300;
+  }
+
+  .footer-title {
+    @apply text-lg font-bold text-gray-900 mb-6 uppercase;
   }
 
   .contact-item {
-    @apply flex items-start mb-3 md:mb-5 gap-1 md:gap-4 text-gray-900 text-sm;
+    @apply flex gap-2 items-start justify-start text-gray-900 text-sm;
   }
 
   .gradient-primary {
@@ -29,6 +37,10 @@
 
   .gradient-secondary {
     @apply bg-gradient-to-br from-secondary-200 to-secondary-500 border border-secondary-600;
+  }
+
+  .btn-circle {
+    @apply rounded-full shadow-sm hover:shadow-md hover:-translate-y-2 flex items-center justify-center overflow-hidden cursor-pointer hover:scale-105 transition-all duration-300;
   }
 
   .gradient-bg {
