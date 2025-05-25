@@ -148,14 +148,32 @@ const ContactForm: React.FC = () => {
         message: formData.message,
       };
 
-      const response = await emailjs.send(
+      // Send email to admin
+      const adminResponse = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID_TEXT,
         adminTemplateParams,
         EMAILJS_PUBLIC_KEY
       );
 
-      console.log("EmailJS Response:", response);
+      console.log("Admin EmailJS Response:", adminResponse);
+
+      // Send confirmation email to client
+      if (EMAILJS_TEMPLATE_ID) {
+        const clientTemplateParams = {
+          email: formData.email,
+        };
+
+        const clientResponse = await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          clientTemplateParams,
+          EMAILJS_PUBLIC_KEY
+        );
+
+        console.log("Client Confirmation EmailJS Response:", clientResponse);
+      }
+
       alert(getTranslatedString("contactForm.success"));
       setFormData({
         name: "",
