@@ -144,8 +144,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ onLoadComplete }) => {
           {translations.contact.button}
         </button>
       </div>
-          <SocialLinks />
-
+      <SocialLinks />
     </div>
   );
 
@@ -183,7 +182,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ onLoadComplete }) => {
         onClose={handleCloseModal}
         title={translations.contact.button}
       >
-        <ContactForm />
+        <ContactForm onSuccess={handleCloseModal} />
       </Modal>
     </>
   );

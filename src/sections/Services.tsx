@@ -3,6 +3,7 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import CleanHandsIcon from "@/assets/icons/clean-hands.svg";
 import DeepCleaningIcon from "@/assets/icons/dusting.svg";
+import MoveOutIcon from "@/assets/icons/move.svg";
 import RegularMaintenanceIcon from "@/assets/icons/dusting.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { FC } from "react";
@@ -57,7 +58,7 @@ export const Services: FC = () => {
     items: [0, 1, 2].map(getTranslatedServiceItem),
   };
 
-  const icons = [CleanHandsIcon, DeepCleaningIcon, RegularMaintenanceIcon];
+  const icons = [CleanHandsIcon, DeepCleaningIcon, MoveOutIcon];
 
   const services: ServiceItem[] = translations.items.map((item, index) => ({
     ...item,
@@ -72,7 +73,7 @@ export const Services: FC = () => {
         title={translations.header.title}
         description={translations.header.description}
       />
-      <div className="mt-12 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-28">
+      <div className="mt-12 md:mt-18 grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-28">
         {services.map((service, index) => (
           <div
             key={index}

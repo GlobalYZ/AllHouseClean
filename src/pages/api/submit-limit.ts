@@ -8,7 +8,7 @@ interface SubmissionRecord {
 // In-memory storage for submission records
 const submissionRecords = new Map<string, SubmissionRecord>();
 
-const SUBMISSION_LIMIT = 2;
+const SUBMISSION_LIMIT = 4;
 const TIME_WINDOW = 10 * 60; // 10 minutes in seconds
 
 // Clean up old records periodically

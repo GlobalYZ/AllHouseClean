@@ -33,9 +33,13 @@ interface FormData {
   message: string;
 }
 
-const SUBMISSION_LIMIT = 2;
+interface ContactFormProps {
+  onSuccess?: () => void;
+}
 
-const ContactForm: React.FC = () => {
+const SUBMISSION_LIMIT = 4;
+
+const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
   const { showSuccess, showError } = usePopup();
   const { t } = useLanguage();
 
@@ -180,6 +184,7 @@ const ContactForm: React.FC = () => {
         email: "",
         message: "",
       });
+      onSuccess?.();
     } catch (error) {
       console.error("EmailJS detailed error:", error);
       showError(getTranslatedString("contactForm.error"));
@@ -190,14 +195,6 @@ const ContactForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      {remainingSubmissions < SUBMISSION_LIMIT && (
-        <div className="text-yellow-600 mb-4">
-          {getTranslatedString("contactForm.remainingSubmissions").replace(
-            "{count}",
-            remainingSubmissions.toString()
-          )}
-        </div>
-      )}
       <div className="form-group">
         <label htmlFor="name" className="form-label">
           {getTranslatedString("contactForm.name")}
