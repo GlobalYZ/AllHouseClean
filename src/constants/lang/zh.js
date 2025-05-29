@@ -12,7 +12,7 @@ const zh = {
     subtitle: "— 从家洁生活服务开始",
     contact: {
       title: "联系我们",
-      phone: "(825) 889-6127 (message-only)",
+      phone: "780-952-1079",
       email: "service@allhouseclean.ca",
       address: "40 - 3710 Allan Drive SW\nEdmonton, AB T6X 0B6",
       button: "联系我们",

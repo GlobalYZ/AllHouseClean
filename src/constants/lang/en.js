@@ -15,7 +15,7 @@ const en = {
     subtitle: "— starting with All House Clean",
     contact: {
       title: "Connect with us",
-      phone: "(825) 889-6127 (message-only)",
+      phone: "780-952-1079",
       email: "service@allhouseclean.ca",
       address: "18012 105 Ave NW #101\nEdmonton, AB T5S 2P1",
       button: "Contact Us",
