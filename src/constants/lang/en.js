@@ -223,7 +223,7 @@ const en = {
     },
     contact: {
       title: "Contact Us",
-      phone: "(825) 889-6127 (message-only)",
+      phone: "780-952-1079",
       email: "service@allhouseclean.ca",
       address: "40 - 3710 Allan Drive SW\nEdmonton, AB T6X 0B6",
     },
