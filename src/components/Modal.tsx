@@ -5,9 +5,16 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  width?: string; // 可选的宽度属性
 }
 
-export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
+export const Modal = ({
+  isOpen,
+  onClose,
+  title,
+  children,
+  width = "max-w-md",
+}: ModalProps) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -35,7 +42,7 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
 
       {/* Modal Content */}
       <div
-        className={`relative bg-white rounded-lg w-full max-w-md mx-4 transform transition-all duration-300 ease-in-out ${
+        className={`relative bg-white rounded-lg w-full ${width} mx-4 transform transition-all duration-300 ease-in-out ${
           isAnimating
             ? "translate-y-0 opacity-100 scale-100"
             : "-translate-y-4 opacity-0 scale-95"
@@ -66,7 +73,7 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
         </div>
 
         {/* Body */}
-        <div className="p-4">{children}</div>
+        <div className="p-4 overflow-y-auto">{children}</div>
       </div>
     </div>
   );

@@ -21,6 +21,13 @@ const en = {
       button: "Contact Us",
     },
   },
+  MoveItems: {
+    title: "Downtown Edmonton – 1 Bedroom Luxury Apartment Move-Out Cleaning",
+    description: [
+      "This recent project took place at The Legends Private Residences in Downtown Edmonton. The unit was a modern 1-bedroom, 1-bathroom apartment with high-end finishes and appliances.",
+      "The tenant had just moved out, leaving behind noticeable dirt and clutter. The homeowner requested that the space be restored to its original, move-in condition. Our team carried out a detailed, top-to-bottom cleaning to meet this expectation.",
+    ],
+  },
   description: {
     paragraphs: [
       "As a residential cleaning company based in Edmonton, we’re here to support every customer who needs us — with care, patience, and professionalism.",

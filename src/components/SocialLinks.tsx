@@ -19,7 +19,7 @@ export const SocialLinks = () => {
   return (
     <div className="flex justify-center gap-8">
       <a
-        href="https://www.facebook.com/61576212511142"
+        href="https://www.facebook.com/profile.php?id=61575857445694"
         target="_blank"
         rel="noopener noreferrer"
         title="Follow us on Facebook"
